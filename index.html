@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Abdul Zubair - Full Stack Developer, Android Developer & Game Developer. Explore professional projects, skills, and contact information.">
-    <meta name="author" content="Abdul Zubair">
-    <title>Abdul Zubair | Futuristic Developer Portfolio</title>
+    <meta name="description" content="Shaikh Abdul Zubair Abdul Kabir - Master Engineering Portfolio with 69 Production Projects. Full-Stack, Android, Offline Mesh, AI Agents, and Game Engines.">
+    <meta name="author" content="Shaikh Abdul Zubair Abdul Kabir">
+    <title>Shaikh Abdul Zubair | Master Engineering Portfolio (69 Projects)</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --bg-dark: #030712;
+            --card-bg: rgba(15, 23, 42, 0.7);
+            --border-glow: rgba(139, 92, 246, 0.35);
+            --primary: #8b5cf6;
+            --primary-glow: #a855f7;
+            --accent-blue: #38bdf8;
+            --accent-green: #22c55e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,26 +31,18 @@
         }
 
         body {
-            background: radial-gradient(circle at 10% 20%, #0a0f2a, #030617);
-            color: #f0f3ff;
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Poppins', sans-serif;
-            line-height: 1.5;
+            background: radial-gradient(circle at 15% 15%, #0f172a, #030712 90%);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0b1120;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #5a3bcb;
-            border-radius: 10px;
-        }
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b0f19; }
+        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 6px; }
 
         #particles-canvas {
             position: fixed;
@@ -46,444 +55,607 @@
         }
 
         .container {
-            max-width: 1300px;
+            max-width: 1360px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
             position: relative;
             z-index: 2;
         }
 
+        /* Navigation */
         nav {
             position: sticky;
-            top: 20px;
+            top: 16px;
             z-index: 100;
-            backdrop-filter: blur(16px);
-            background: rgba(10, 20, 40, 0.55);
-            border-radius: 3rem;
-            margin: 1rem auto;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            margin: 0 auto 2rem;
             width: fit-content;
-            max-width: 90%;
-            padding: 0.8rem 2rem;
-            border: 1px solid rgba(120, 80, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 95%;
+            padding: 0.75rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s, text-shadow 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #fff;
+            text-shadow: 0 0 12px var(--primary-glow);
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: #fff !important;
+            padding: 0.45rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.85rem !important;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1rem 3rem;
+        }
+
+        .profile-avatar {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            padding: 4px;
+            box-shadow: 0 0 35px rgba(99, 102, 241, 0.4);
+            margin-bottom: 1.8rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #020617;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 40%, #c084fc 80%, #38bdf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-badge {
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            color: #c084fc;
+            padding: 0.4rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            color: white;
+            padding: 0.85rem 2rem;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid #475569;
+            color: #e2e8f0;
+            padding: 0.85rem 1.8rem;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
             transition: all 0.3s;
         }
 
-            nav ul {
-                display: flex;
-                gap: 2.5rem;
-                list-style: none;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
+        .btn-secondary:hover {
+            background: #1e293b;
+            border-color: #94a3b8;
+            transform: translateY(-2px);
+        }
 
-            nav a {
-                color: #eef5ff;
-                text-decoration: none;
-                font-weight: 600;
-                letter-spacing: 0.5px;
-                transition: 0.2s;
-                font-size: 1.05rem;
-            }
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin: 2rem 0 4rem;
+        }
 
-                nav a:hover {
-                    color: #b27aff;
-                    text-shadow: 0 0 6px #a46eff;
-                }
+        .stat-item {
+            text-align: center;
+        }
 
-        section {
-            padding: 5rem 0 4rem;
-            border-bottom: 1px solid rgba(76, 90, 160, 0.2);
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
         }
 
         .section-title {
             font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-            background: linear-gradient(135deg, #c0b5ff, #7f5aff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
-
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            flex-direction: column;
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            background: linear-gradient(135deg, #1e2a5e, #2b1e5a);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            border: 3px solid rgba(128, 90, 255, 0.7);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4), 0 0 0 6px rgba(105, 70, 255, 0.2);
-            transition: 0.4s;
-        }
-
-            .profile-img img {
-                width: 90%;
-                height: 90%;
-                border-radius: 50%;
-                object-fit: cover;
-                background: #0f1429;
-            }
-
-        .hero h1 {
-            font-size: 3.2rem;
             font-weight: 800;
-            background: linear-gradient(120deg, #ffffff, #b58eff);
+            background: linear-gradient(135deg, #ffffff, #a855f7);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin-bottom: 0.5rem;
         }
 
-        .hero-sub {
-            font-size: 1.3rem;
-            margin: 1rem 0 1rem;
-            color: #bfc9ff;
-        }
-
-        .hero-desc {
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
             max-width: 650px;
-            margin: 0.5rem auto 2rem;
-            font-size: 1.1rem;
-            color: #cbd5ff;
+            margin: 0 auto;
         }
 
-        .btn-primary {
-            background: linear-gradient(95deg, #5f3eff, #9f6eff);
-            border: none;
-            padding: 0.9rem 2.2rem;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 40px;
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(95, 62, 255, 0.4);
-            transition: transform 0.25s, box-shadow 0.25s;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-            .btn-primary:hover {
-                transform: translateY(-3px) scale(1.02);
-                box-shadow: 0 12px 28px rgba(95, 62, 255, 0.6);
-            }
-
-        .about-grid {
+        /* Search & Filter Controls */
+        .filter-container {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 1.2rem;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
+            flex-direction: column;
+            gap: 1.2rem;
         }
 
-        .about-card {
-            background: rgba(20, 30, 60, 0.45);
-            backdrop-filter: blur(8px);
-            border-radius: 2rem;
-            padding: 1.8rem;
-            border: 1px solid rgba(130, 100, 255, 0.3);
-            flex: 1;
+        .search-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: #020617;
+            border: 1px solid #334155;
+            border-radius: 999px;
+            padding: 0.9rem 1.5rem 0.9rem 3rem;
+            font-size: 1rem;
+            color: #fff;
+            outline: none;
             transition: all 0.3s;
         }
 
-        .skillset {
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+        }
+
+        .category-pills {
             display: flex;
+            gap: 0.6rem;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1rem;
+            justify-content: center;
         }
 
-        .skill-badge {
-            background: rgba(90, 70, 200, 0.3);
-            backdrop-filter: blur(4px);
-            border-radius: 40px;
+        .pill-btn {
+            background: #0f172a;
+            border: 1px solid #334155;
+            color: #cbd5e1;
             padding: 0.5rem 1.2rem;
-            font-weight: 500;
-            border-left: 2px solid #9b6eff;
+            border-radius: 999px;
             font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-weight: 500;
         }
 
+        .pill-btn:hover {
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .pill-btn.active {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 4rem;
         }
 
         .project-card {
-            background: rgba(18, 25, 55, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 1.8rem;
-            overflow: hidden;
-            transition: all 0.35s ease;
-            border: 1px solid rgba(105, 80, 255, 0.25);
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.4);
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.4rem;
+            padding: 1.6rem;
             display: flex;
             flex-direction: column;
-            height: 100%;
-        }
-
-            .project-card:hover {
-                transform: translateY(-10px);
-                border-color: #8f6eff;
-                box-shadow: 0 25px 40px -12px rgba(127, 90, 255, 0.3);
-            }
-
-        .project-img {
-            height: 240px;
-            overflow: hidden;
+            backdrop-filter: blur(12px);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-            background: #0a0e20;
+            overflow: hidden;
         }
 
-            .project-img video, .project-img img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform 0.5s ease;
-                display: block;
-            }
-
-        .project-card:hover .project-img video,
-        .project-card:hover .project-img img {
-            transform: scale(1.05);
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 15px 35px -5px rgba(139, 92, 246, 0.25);
         }
 
-        .media-label {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            background: #000000aa;
-            backdrop-filter: blur(4px);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            color: white;
-            z-index: 2;
-            pointer-events: none;
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
         }
 
-        .project-info {
-            padding: 1.5rem;
+        .card-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 1.4rem;
             flex: 1;
-            display: flex;
-            flex-direction: column;
         }
 
-            .project-info h3 {
-                font-size: 1.5rem;
-                margin-bottom: 0.6rem;
-            }
-
-            .project-info p {
-                color: #ccd6ff;
-                margin-bottom: 1.2rem;
-                flex: 1;
-            }
-
-        .project-btn {
-            background: transparent;
-            border: 1.5px solid #8c68ff;
-            border-radius: 30px;
-            padding: 0.5rem 1.2rem;
-            width: fit-content;
-            color: #d9caff;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.2s;
-            cursor: pointer;
-            display: inline-block;
-            text-align: center;
-        }
-
-            .project-btn:hover {
-                background: #6e48ff30;
-                border-color: #bf9eff;
-                color: white;
-            }
-
-        .contact-buttons {
+        .card-actions {
             display: flex;
-            gap: 1.5rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
-            margin: 2rem 0 1rem;
+            margin-top: auto;
         }
 
-        .contact-icon {
-            background: rgba(40, 45, 90, 0.6);
-            backdrop-filter: blur(8px);
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
+        .btn-card-action {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.4rem;
+            transition: all 0.25s;
+        }
+
+        .btn-card-action:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-card-apk {
+            background: #16a34a;
+            color: white;
+            padding: 0.6rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
             font-weight: 600;
-            transition: 0.2s;
-            border: 1px solid rgba(150, 110, 255, 0.5);
-            color: #eef3ff;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.25s;
         }
 
-            .contact-icon:hover {
-                background: #6b48ff60;
-                transform: translateY(-3px);
-            }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0 2.5rem;
-            color: #8b96cf;
+        .btn-card-apk:hover {
+            background: #15803d;
+            transform: scale(1.04);
         }
 
+        .btn-card-code {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid #475569;
+            color: #94a3b8;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.25s;
+        }
+
+        .btn-card-code:hover {
+            color: #fff;
+            border-color: #94a3b8;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(16px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #0f172a;
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            border-radius: 1.5rem;
+            width: 100%;
+            max-width: 780px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(139, 92, 246, 0.2);
+            position: relative;
+            padding: 2rem;
+            animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalIn {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: #ef4444;
+            transform: rotate(90deg);
+        }
+
+        /* Simulator controls styling */
+        .btn-ctrl {
+            background: #1e293b;
+            color: #fff;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-ctrl:hover { background: #334155; }
+        
+        .btn-action {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .calc-btn {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .calc-btn:hover { background: #334155; }
+        .calc-btn.op { background: #4338ca; }
+
+        /* Floating Robot */
         .robot-fixed {
             position: fixed;
-            bottom: 30px;
+            bottom: 25px;
             right: 25px;
-            z-index: 999;
+            z-index: 99;
             cursor: pointer;
-            transition: transform 0.2s;
         }
 
         .robot-body {
             position: relative;
-            animation: floatVertical 2.5s infinite ease-in-out;
-        }
-
-        .rope {
-            position: absolute;
-            top: -70px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 70px;
-            background: radial-gradient(circle, #9f8eff, #5b41b0);
-            animation: slightSwing 2s infinite alternate;
-            transform-origin: top;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .robot-icon {
+            font-size: 2.8rem;
+            background: rgba(15, 23, 42, 0.9);
+            border: 2px solid #8b5cf6;
+            border-radius: 50%;
             width: 65px;
             height: 65px;
-            background: linear-gradient(145deg, #272e5f, #191e42);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 0 3px #7a5aff;
-            transition: 0.2s;
-            backdrop-filter: blur(5px);
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+            animation: robotFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes robotFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         .speech-bubble {
             position: absolute;
-            bottom: 80px;
-            right: 10px;
-            background: #11172ed9;
-            backdrop-filter: blur(12px);
-            padding: 12px 18px;
-            border-radius: 28px;
-            border-top-right-radius: 6px;
-            color: #f2ecff;
+            bottom: 75px;
+            right: 0;
+            background: #8b5cf6;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.85rem;
             font-weight: 600;
-            font-size: 1rem;
             white-space: nowrap;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            border: 1px solid #ac8eff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            opacity: 0;
             transition: opacity 0.3s, transform 0.3s;
-            opacity: 0;
-            transform: scale(0.85);
+            transform: scale(0.9);
+            pointer-events: none;
+        }
+
+        .speech-bubble.show {
+            opacity: 1;
+            transform: scale(1);
             pointer-events: auto;
-            cursor: pointer;
         }
 
-            .speech-bubble.show {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-        @keyframes floatVertical {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 4rem;
         }
-
-        @keyframes slightSwing {
-            0% {
-                transform: translateX(-50%) rotate(-2deg);
-            }
-
-            100% {
-                transform: translateX(-50%) rotate(2deg);
-            }
-        }
-
-        .fade-up {
-            opacity: 0;
-            transform: translateY(35px);
-            transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.1), transform 0.7s ease;
-        }
-
-            .fade-up.revealed {
-                opacity: 1;
-                transform: translateY(0);
-            }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1.2rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                gap: 1.3rem;
-            }
-
-            .contact-buttons {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .skill-badge {
-                font-size: 0.75rem;
-            }
-        }
-
-        .fallback-img {
-            background: linear-gradient(145deg, #1a2350, #10163a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: #bdaaff;
-            width: 100%;
-            height: 100%;
+            .hero h1 { font-size: 2.4rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            nav ul { gap: 1rem; }
         }
     </style>
 </head>
@@ -493,321 +665,282 @@
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#projects">Projects (69)</a></li>
+            <li><a href="#resumes">Resumes</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="./resume/Shaikh_Abdul_Zubair_Resume.pdf" download class="nav-btn">📄 ATS Resume</a></li>
         </ul>
     </nav>
 
     <main class="container">
-        <section id="home" class="hero fade-up">
-            <div class="profile-img">
-                <!-- profile image: s4.jpeg -->
-                <img src="s4.jpeg" alt="Abdul Zubair avatar" onerror="this.src='https://placehold.co/400x400/1e2a5e/bf9eff?text=AZ'">
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <div class="profile-avatar">
+                <img src="s4.jpeg" alt="Shaikh Abdul Zubair" onerror="this.src='https://placehold.co/400x400/1e2a5e/bf9eff?text=AZ'">
             </div>
-            <h1>Abdul Zubair</h1>
-            <div class="hero-sub">Full Stack Developer | Android Developer | Game Developer</div>
-            <p class="hero-desc">Building futuristic digital experiences, cross-platform apps, immersive games, and AI-powered tools. Turning complex ideas into elegant, performant software.</p>
-            <a href="#projects" class="btn-primary" id="view-projects-btn">✨ View Projects</a>
+            <div class="hero-badge">🎓 BCA Final Year • SRK Institute of Business Administration & Computer Education</div>
+            <h1>Shaikh Abdul Zubair Abdul Kabir</h1>
+            <div class="hero-sub">Full Stack Developer | Android & Mesh Network Architect | Autonomous AI & Game Engine Engineer</div>
+            
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary">⚡ Explore All 69 Projects</a>
+                <a href="./resume/Shaikh_Abdul_Zubair_Resume.pdf" download class="btn-secondary">📄 Download ATS Resume (PDF)</a>
+                <a href="./resume/Shaikh_Abdul_Zubair_Master_Portfolio_Resume.pdf" download class="btn-secondary">📚 Master 6-Page Portfolio (PDF)</a>
+            </div>
         </section>
 
-        <section id="about" class="fade-up">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <p style="font-size: 1.1rem; line-height: 1.5">I'm a passionate developer with expertise in modern web stacks, Android, and game engines (Unity, Godot). I love bridging hardware and software — from AI assistants on Arduino to complete social ecosystems. My goal is to build products that inspire and deliver measurable impact.</p>
-                    <p style="margin-top: 1rem;">📍 Based in India | 0 years experience</p>
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">69</div>
+                <div class="stat-label">Production Projects</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Core Domains</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Languages & Engines</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">83.7%</div>
+                <div class="stat-label">Internship Efficiency</div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <h2 class="section-title">Master Project Showcase</h2>
+                <p class="section-subtitle">Every single project on my computer — fully cataloged, runnable in-browser, downloadable as APKs, or inspectable on GitHub.</p>
+            </div>
+
+            <!-- Search & Filters -->
+            <div class="filter-container">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="projectSearch" placeholder="Search 69 projects by title, technology, or feature...">
                 </div>
-                <div class="about-card">
-                    <h3 style="margin-bottom: 1rem;">⚡ Core Skills</h3>
-                    <div class="skillset">
-                        <span class="skill-badge">HTML5/CSS3</span><span class="skill-badge">Python</span><span class="skill-badge">PHP</span>
-                        <span class="skill-badge">Unity</span><span class="skill-badge">Godot</span><span class="skill-badge">Android Dev</span>
-                        <span class="skill-badge">Firebase</span><span class="skill-badge">Node.js</span><span class="skill-badge">Arduino</span><span class="skill-badge">REST APIs</span><span class="skill-badge">PLSQL</span>
-                    </div>
+                <div class="category-pills" id="categoryPills">
+                    <button class="pill-btn active" data-cat="all">All (69)</button>
+                    <button class="pill-btn" data-cat="enterprise">🏢 Campus & Enterprise (17)</button>
+                    <button class="pill-btn" data-cat="android">📱 Android & Offline Mesh (14)</button>
+                    <button class="pill-btn" data-cat="ai">🤖 Autonomous AI & Media (11)</button>
+                    <button class="pill-btn" data-cat="games">🎮 Games & Physics (15)</button>
+                    <button class="pill-btn" data-cat="systems">⚙️ Embedded & Core Systems (12)</button>
+                </div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="projects-grid" id="projectsGrid"></div>
+        </section>
+
+        <!-- Resumes Section -->
+        <section id="resumes" style="padding: 4rem 0;">
+            <div class="section-header">
+                <h2 class="section-title">Official Engineering Resumes</h2>
+                <p class="section-subtitle">Verified ATS-optimized resumes and architectural documentation ready for instant recruiter review.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                <div style="background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.2rem; padding: 2rem; backdrop-filter: blur(12px);">
+                    <h3 style="color: #38bdf8; margin-bottom: 0.8rem;">📄 2-Page ATS Standard Resume</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Optimized for corporate ATS screening engines, placement drives, and software engineering interviews. Concise, clean metrics-driven layout.</p>
+                    <a href="./resume/Shaikh_Abdul_Zubair_Resume.pdf" download class="btn-primary" style="width: 100%; justify-content: center;">📥 Download 2-Page Resume (PDF)</a>
+                </div>
+
+                <div style="background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.2rem; padding: 2rem; backdrop-filter: blur(12px);">
+                    <h3 style="color: #c084fc; margin-bottom: 0.8rem;">📚 6-Page Master Portfolio Catalog</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Comprehensive deep-dive documenting all projects, system block diagrams, offline Bluetooth/Wi-Fi mesh protocols, and game engine math.</p>
+                    <a href="./resume/Shaikh_Abdul_Zubair_Master_Portfolio_Resume.pdf" download class="btn-primary" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #c084fc, #7c3aed);">📥 Download Master Portfolio (PDF)</a>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section - using exact file names from user -->
-        <section id="projects" class="fade-up">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid" id="projects-grid"></div>
-        </section>
-
-        <section id="contact" class="fade-up">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-buttons">
-                <a href="https://github.com/abdulzubair1135" target="_blank" class="contact-icon">🐙 GitHub</a>
-                <a href="https://www.linkedin.com/in/abdul-zubair-262138356?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="contact-icon">🔗 LinkedIn</a>
-                <a href="mailto:abdulzubair221@gmail.com" class="contact-icon">📧 Email</a>
-                <a href="https://wa.me/917069644783" target="_blank" class="contact-icon">💬 WhatsApp</a>
+        <!-- Contact Section -->
+        <section id="contact" style="padding: 4rem 0 2rem;">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect & Collaborate</h2>
+                <p class="section-subtitle">Available for full-time Software Developer roles, high-impact product engineering, and innovative systems development.</p>
             </div>
-            <p style="margin-top: 1rem; opacity: 0.8">Feel free to reach out for collaborations or just a chat.</p>
+
+            <div style="display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;">
+                <a href="https://wa.me/917069644783" target="_blank" class="btn-secondary" style="border-color: #22c55e; color: #4ade80;">💬 WhatsApp (+91 7069644783)</a>
+                <a href="mailto:abdulzubair221@gmail.com" class="btn-secondary" style="border-color: #38bdf8; color: #38bdf8;">📧 abdulzubair221@gmail.com</a>
+                <a href="https://github.com/abdulzubair1135" target="_blank" class="btn-secondary">🐙 GitHub Profile</a>
+                <a href="https://www.linkedin.com/in/abdul-zubair-262138356" target="_blank" class="btn-secondary">🔗 LinkedIn Profile</a>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p> 2026 Abdul Zubair </p>
-    </footer>
-
-    <div class="robot-fixed" id="floatingRobot">
-        <div class="robot-body">
-            <div class="rope"></div>
-            <div class="robot-icon" id="robotIcon">🤖</div>
-            <div id="speechBubble" class="speech-bubble">👋 Contact me Sir</div>
+    <!-- Interactive Simulator Modal -->
+    <div class="modal-overlay" id="simModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div id="modal-sim-body"></div>
         </div>
     </div>
 
+    <!-- Floating Robot -->
+    <div class="robot-fixed" id="floatingRobot" onclick="window.open('https://wa.me/917069644783', '_blank')">
+        <div class="robot-body">
+            <div class="robot-icon">🤖</div>
+            <div id="speechBubble" class="speech-bubble">👋 Need help? Chat on WhatsApp!</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Shaikh Abdul Zubair Abdul Kabir • All 69 Projects Master Portfolio • Built with ❤️</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/simulators.js"></script>
     <script>
-        // ---------- PROJECTS WITH EXACT USER-SPECIFIED FILE NAMES ----------
-        // Updated: Each project now has a unique link for the Explore button
-        const projectsData = [
-        {
-        title: "CampusHub Pro",
-        description: "A modern social networking platform featuring global chat, private messaging, user profiles, posts, likes, notifications and community interaction.",
-        mediaType: "video",
-        mediaSrc: "campus_hub.mp4",
-        fallbackPoster: "https://placehold.co/800x500/211d4e/bf9eff?text=CampusHub+Preview",
-        label: "▶ Demo Video",
-        projectLink: "https://github.com/abdulzubair1135"  // GitHub repo link (you can replace with actual project link)
-        },
-        {
-        title: "Social Media Platform",
-        description: "Full-stack social media platform with authentication, posts, comments, likes and real-time communication. Complete social ecosystem.",
-        mediaType: "image",
-        mediaSrc: "social.png",
-        label: "📱 Platform UI",
-        projectLink: "https://github.com/abdulzubair1135"
-        },
-        {
-        title: "Clever Project",
-        description: "Innovative application with intelligent features and seamless user experience, built using modern frameworks.",
-        mediaType: "image",
-        mediaSrc: "clever.jpeg",
-        label: "✨ Smart Solution",
-        projectLink: "https://github.com/abdulzubair1135"
-        },
-        {
-        title: "2D RPG Adventure",
-        description: "Godot Engine 2D RPG featuring exploration, enemy AI, inventory systems and animated pixel-art environments.",
-        mediaType: "image",
-        mediaSrc: "2d.png",
-        label: "⚔️ RPG Adventure",
-        projectLink: "https://github.com/abdulzubair1135"
-        },
-        {
-        title: "Unity 3D Open World",
-        description: "Stunning open-world game built with Unity 6.2 featuring terrain generation, dynamic day-night cycle, immersive gameplay, and advanced shaders.",
-        mediaType: "image",
-        mediaSrc: "yorus - SampleScene - Windows, Mac, Linux - Unity 6.2 (6000.2.6f1) _DX12_ 01-11-2025 13_19_00.png",
-        label: "🎮 Unity Scene",
-        projectLink: "https://github.com/abdulzubair1135"
-        },
-        {
-        title: "Goal Achiever Master",
-        description: "Productivity & goal tracking application to master daily targets, habit formation, and progress analytics. Boost efficiency with smart reminders.",
-        mediaType: "image",
-        mediaSrc: "Goal Achiever Master - Personal - Microsoft​ Edge 02-11-2025 21_11_35.png",
-        label: "✅ Goal Tracker",
-        projectLink: "https://github.com/abdulzubair1135"
-        }
-        ];
+        const allProjects = [{"id": "abdul-server", "title": "AbdulServer", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Backend server infrastructure handling custom routing and session dispatching.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/abdul-server", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "asset-manager-platform", "title": "Full-Stack Asset Manager Platform", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Modern IT and organizational asset management dashboard built with React, TypeScript, Tailwind CSS, and Drizzle ORM.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/asset-manager-platform", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "college-face-recognition-attendance", "title": "College Face Recognition Automated Attendance", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Complete biometric facial recognition system integrating deep computer vision with frontend management portal and backend verification API.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/college-face-recognition-attendance", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "college-hub", "title": "collage-hub", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "college dreammmmm", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/college-hub", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "cyclecare-health-platform", "title": "CYCLECARE \u2014 MASTER PRODUCTION APP & BACKEND", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "> **Tagline:** Track \u2022 Understand \u2022 Prepare \u2022 Care", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/cyclecare-health-platform", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "enterprise-billing-backend", "title": "Enterprise Billing Backend", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Production engineering project developed in \ud83c\udfe2 Campus & Enterprise.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/enterprise-billing-backend", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "follow-or-not-app", "title": "Preview production build locally", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "> **\"Know Who Follows You. Track Every Change.\"**", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/follow-or-not-app", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "gst-billing-system", "title": "GST Billing & Invoicing Enterprise System", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Enterprise GST calculation, invoicing, and inventory system powered by Node.js, Express, and SQL database schemas with automated invoice generation.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/gst-billing-system", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "interact-app", "title": "Getting Started with Create React App", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/interact-app", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "masipay-canteen", "title": "Terminal 2: Frontend Web App", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "> **Tagline:** *\"Order karo, Masi tak turant pahunchao.\"*", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/masipay-canteen", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "mvc-backend-architecture", "title": "Modular MVC Backend", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Enterprise REST API architecture featuring isolated controllers, authentication middleware, and validated schemas.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/mvc-backend-architecture", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "projectflow-intelligence", "title": "Install directly to attached device via ADB", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "[![System Status](https://img.shields.io/badge/System_Status-ONLINE-success.svg)](https://projectflow-intelligence.onrender.com)", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/projectflow-intelligence", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "smart-expenses-tracker", "title": "Smart Expenses Tracker", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "> Simple \u2022 Secure \u2022 Offline First", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/smart-expenses-tracker", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "social-media-platform", "title": "Full-Stack Social Network", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Complete social media platform with user feeds, image uploads, post interactions, and real-time chat.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/social-media-platform", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "srk-campus-connect", "title": "Campus Presence, Attendance & Faculty Coordination System", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "A production-grade, offline-first college campus coordination platform uniting students, faculty, and administration across 3 Flutter applications and a unified Node.js/TypeScript backend.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/srk-campus-connect", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "test-microservice", "title": "TEST Microservice", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Experimental API testing server for token validations and endpoint routing.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/test-microservice", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "wss-bhuj-institutional-portal", "title": "WSS Bhuj Institutional Web Portal", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Institutional web platform with responsive styling, public portal pages, and localized asset structures.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/wss-bhuj-institutional-portal", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "aapdasetu-disaster-response", "title": "AapdaSetu Disaster Command & Mesh", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Cellular-independent disaster rescue operations command console with real-time GIS incident mapping.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/aapdasetu-disaster-response", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "android-native-prototypes", "title": "Native Android Prototypes", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Prototypes testing custom CameraX capture pipelines, sensor fusion, and Room DB migrations.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/android-native-prototypes", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "couple-canvas", "title": "\ud83d\udc95 Couple Canvas", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "> **\"Two people. One canvas. Draw together.\"**", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/couple-canvas", "demoType": "whiteboard", "playType": "", "apkUrl": ""}, {"id": "emergency-recorder-fast-rec", "title": "Emergency Recorder (Fast Rec) \ud83c\udf99\ufe0f\ud83d\udea8", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "A native, high-performance Android emergency audio recording application built in **Kotlin** and **Jetpack Compose (Material 3)**.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/emergency-recorder-fast-rec", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "focus-guard-addiction-blocker", "title": "Build Release APK", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "---", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/focus-guard-addiction-blocker", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "myhelper-storage-analyzer", "title": "myhelper Analyzer", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Storage and system health tool identifying redundant caches, battery drainers, and duplicate files.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/myhelper-storage-analyzer", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "neardrop-wireless-drop", "title": "NearDrop", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Fast local device-to-device wireless file transfer utility.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/neardrop-wireless-drop", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "nearmeshchat-sahay-android", "title": "NearMeshChat (Sahay)", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Offline Android client featuring BLE radar scanning, store-and-forward mesh routing, and on-device Llama edge AI triage.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nearmeshchat-sahay-android", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "nexus-meshlink-offline", "title": "Nexus (MeshLinkOffline)", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Edge AI computing engine hosting a local HTTP microserver and offline inference engine on Android.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nexus-meshlink-offline", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "personal-life-vault", "title": "Personal Life Vault", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Hardware-backed encrypted vault for sensitive documents with stealth triggers.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/personal-life-vault", "demoType": "vault_sim", "playType": "", "apkUrl": "apks/PersonalLifeVault.apk"}, {"id": "pocketai-server", "title": "PocketAI Server", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Companion offline AI assistant server delivering local inference over Wi-Fi.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/pocketai-server", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "recoverx-data-recovery", "title": "Assemble Release APK", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "RecoverX is a native Android application engineered to discover accessible device storage, preview photos and videos, detect extension and MIME mismatches, search for cached thumbnails and alternate copies, and safely restore accessible files without ever fabricating scan results or making false promises.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/recoverx-data-recovery", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "rentany-rental-platform", "title": "RentANY Multi-Platform Rental System", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Full-Stack Android Rental Marketplace built with Kotlin, Android Jetpack, and a Node.js backend. Features product rental listings, transaction tracking, and real-time order states.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/rentany-rental-platform", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "z-music-player", "title": "Z-Music Player", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "High-fidelity music streaming and offline audio player with foreground background service.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/z-music-player", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "ai-creator-video-automation", "title": "AI Content & Video Creation Automation Pipeline", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Automated media synthesizer generating viral video content using clever script prompts, audio synthesis, and headless ffmpeg assembly.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-creator-video-automation", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "ai-hardware-assistant-arduino", "title": "AI Hardware Assistant with Arduino IoT", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Autonomous voice and reasoning assistant interfacing with local memory caches and Arduino microcontrollers for physical world automation.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-hardware-assistant-arduino", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "ai-video-repurposing-studio", "title": "AI Content Repurposing Studio", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "A desktop video repurposing application that converts long-form video (local files or validated sources) into high-retention 9:16 Shorts with zero paid AI APIs. It combines browser-automated AI providers (Gemini, ChatGPT, DeepSeek) with an FFmpeg video processing pipeline, OpenCV face-tracking smart reframing, animated karaoke captions, strict 15-point quality assurance, and human review before export.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-video-repurposing-studio", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "ai-zubair-llm-research", "title": "AI Zubair LLM Research", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Comprehensive LLM training audits, hyperparameter benchmarks, and automated dataset inventory scripts.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-zubair-llm-research", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "aura-autonomous-ai-system", "title": "AURA \u2014 Autonomous Local AI Research & Learning System", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "AURA is a fully local, autonomous AI research and learning system designed for model independence, hardware efficiency (optimized for NVIDIA RTX 2050 4GB VRAM), and continuous self-driven cognitive execution.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/aura-autonomous-ai-system", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "auto-yt-generator", "title": "Or generate via CLI", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "An automated 2D video production engine designed to create full 1080p animated YouTube videos from a single prompt or topic.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/auto-yt-generator", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "autonomous-web-agent-ide", "title": "Frontend build verification", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "> A production-grade local desktop/web application that transforms natural-language project requirements into full-stack, tested, and running code using web-based LLMs via persistent Playwright automation, strict sandboxing, policy validation, and real-time streaming.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/autonomous-web-agent-ide", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "my-custom-ai-pytorch", "title": "My Custom AI (PyTorch)", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Custom neural language model trained from scratch with custom tokenization and multi-head attention.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/my-custom-ai-pytorch", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "my-helper-agent", "title": "My Helper Autonomous Agent", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Modular cognitive assistant with brain routing, episodic memory, and headless web research tools.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/my-helper-agent", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "omnidev-ai-synthesizer", "title": "OmniDev AI System", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Autonomous game and app synthesizer with persistent memory capable of autonomously building Godot games.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/omnidev-ai-synthesizer", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "stickforge-ai-animation", "title": "StickForge AI \ud83c\udfac\ud83e\udd16", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "StickForge AI is a desktop application for Windows that transforms ideas and scripts into complete animated stickman videos ready for YouTube Shorts, Instagram Reels, and standard video formats.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/stickforge-ai-animation", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "360-journey-panorama", "title": "360 Journey Panorama", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/360-journey-panorama", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "action-rpg-engine", "title": "Action Rpg Engine", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/action-rpg-engine", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "arcade-space-dodger", "title": "2D Arcade Space Dodger", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Fast-paced 2D arcade game featuring procedural asteroid hazard generation and responsive controls.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/arcade-space-dodger", "demoType": "playable_game", "playType": "arcade-space-dodger", "apkUrl": ""}, {"id": "draw-your-army-warforge", "title": "Draw Your Army: WarForge", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "1. **Soldier Creator**: Modular appearance customization, equipment catalogue, base archetypes, and calculated derived stats.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/draw-your-army-warforge", "demoType": "game_sim", "playType": "", "apkUrl": "apks/WarForge.apk"}, {"id": "evergreen-after-the-fall-godot-rpg", "title": "Evergreen: After the Fall (Godot 4 2D Action-RPG)", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Full-featured narrative action RPG built with Godot 4. Features procedural farming, dynamic combat mechanics, inventory & crafting systems, relationship trees, day-night environmental audio, and custom dialogue trees.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/evergreen-after-the-fall-godot-rpg", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "flappy-bird-mechanics", "title": "Flappy Bird Mechanics Game", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Physics-based arcade game implementing custom gravity curves, pipe gap procedural generation, and score tracking.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/flappy-bird-mechanics", "demoType": "playable_game", "playType": "flappy-bird-mechanics", "apkUrl": ""}, {"id": "full-stack-rpg-game", "title": "Full-Stack RPG Game", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Complete action RPG featuring character stats, combat state machines, enemy AI, and dungeon transitions.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/full-stack-rpg-game", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "isekai-world-adventure", "title": "Isekai World Adventure", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Story-driven fantasy adventure game with interactive NPC dialog trees, quest progression, and world exploration.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/isekai-world-adventure", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "minecraft-3d-voxel-engine", "title": "Minecraft 3D Voxel Engine", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "3D voxel sandbox featuring procedural block placement, terrain generation, and destruction physics.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/minecraft-3d-voxel-engine", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "pixel-art-assets", "title": "Pixel Art Assets", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/pixel-art-assets", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "retro-snake-engine", "title": "Retro Snake Engine", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Grid-based classic snake game implementing dynamic body segment interpolation and food spawning.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/retro-snake-engine", "demoType": "playable_game", "playType": "retro-snake-engine", "apkUrl": ""}, {"id": "shadow-kingdom-2d-rpg", "title": "Shadow Kingdom 2D Rpg", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/shadow-kingdom-2d-rpg", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "slikj-water-physics", "title": "Slikj Water Physics", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Interactive 3D water physics simulation with realistic wave displacement, buoyancy calculations, and reflection shaders.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/slikj-water-physics", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "unity-fps-microgame", "title": "Unity 3D FPS Game", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "First Person Shooter with NavMesh AI pathfinding, raycast shooting mechanics, particle impacts, and HUD overlay.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/unity-fps-microgame", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "yorus-3d-world", "title": "Yorus 3D World", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "3D environment exploration featuring atmospheric lighting, custom collision detection, and camera controls.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/yorus-3d-world", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "arduino-iot-wire", "title": "Arduino IoT Wire Communication", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Embedded microcontroller programming using Wire library for I2C communication.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/arduino-iot-wire", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "autohotkey-automation", "title": "AutoHotkey Automation Suite", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Windows desktop automation scripts for keyboard macros and slide transitions.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/autohotkey-automation", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "calculator-utility", "title": "Calculator Utility", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Responsive arithmetic calculation engine.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/calculator-utility", "demoType": "calculator-utility", "playType": "", "apkUrl": ""}, {"id": "college-portal-website", "title": "College Website Portal", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Institutional web portal showcasing courses and student resources.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/college-portal-website", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "java-core-oop-assignments", "title": "Java Core OOP, Abstraction & Custom Exception Suite", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Academic Java engineering suite covering abstract classes, inner member hierarchies, multi-level try-catch, and custom exception handling paradigms.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/java-core-oop-assignments", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "mongodb-advanced-queries", "title": "MongoDB Advanced Queries", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Advanced database optimization routines and NoSQL schema validations.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/mongodb-advanced-queries", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "school-management-portal", "title": "School Management Portal", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Educational administration portal handling student enrollments and fee status.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/school-management-portal", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "stopwatch-and-precision-timer", "title": "Stopwatch & Precision Timer", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Millisecond-precision timer with lap splitting and state persistence.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/stopwatch-and-precision-timer", "demoType": "stopwatch-and-precision-timer", "playType": "", "apkUrl": ""}, {"id": "systems-and-algorithms-cpp", "title": "Systems & Algorithms Repositories", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Core algorithmic data structures and console pipeline utilities.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/systems-and-algorithms-cpp", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "turboc-cpp-academic-projects", "title": "Turbo C++ Academic Algorithms & Systems", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Classic C/C++ implementations of foundational data structures, memory pointer manipulations, and low-level console algorithms.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/turboc-cpp-academic-projects", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "visual-studio-cpp-core", "title": "Visual Studio C++ Low-Level Systems Core", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Visual Studio C++ core solution demonstrating memory safety, native pointers, and low-level system utilities.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/visual-studio-cpp-core", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "visual-studio-node-console", "title": "Visual Studio Node.js CLI & Console Service", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Visual Studio solution integrating Node.js CLI tooling for local process automation and command-line services.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/visual-studio-node-console", "demoType": "dashboard", "playType": "", "apkUrl": ""}];
 
-        // Helper to safely load image/video with fallback
-        function buildProjects() {
-        const grid = document.getElementById('projects-grid');
-        if (!grid) return;
-        grid.innerHTML = '';
-
-        projectsData.forEach((project, idx) => {
-        const card = document.createElement('div');
-        card.className = 'project-card';
-
-        const mediaDiv = document.createElement('div');
-        mediaDiv.className = 'project-img';
-
-        let mediaElement;
-        if (project.mediaType === 'video') {
-        const video = document.createElement('video');
-        video.src = project.mediaSrc;
-        video.poster = project.fallbackPoster || '';
-        video.loop = true;
-        video.muted = true;
-        video.playsInline = true;
-        video.autoplay = false;
-        video.setAttribute('preload', 'metadata');
-        video.addEventListener('mouseenter', () => {
-        video.play().catch(e => console.log("Autoplay blocked - user interaction needed"));
-        });
-        video.addEventListener('mouseleave', () => {
-        video.pause();
-        video.currentTime = 0;
-        });
-        video.onerror = () => {
-        const fallbackDiv = document.createElement('div');
-        fallbackDiv.className = 'fallback-img';
-        fallbackDiv.innerHTML = `<span>🎬 Preview Unavailable</span>`;
-        mediaDiv.innerHTML = '';
-        mediaDiv.appendChild(fallbackDiv);
-        const labelSpan = document.createElement('span');
-        labelSpan.className = 'media-label';
-        labelSpan.innerText = project.label;
-        mediaDiv.appendChild(labelSpan);
-        };
-        mediaElement = video;
-        } else {
-        const img = document.createElement('img');
-        img.src = project.mediaSrc;
-        img.alt = project.title;
-        img.loading = 'lazy';
-        img.onerror = () => {
-        img.onerror = null;
-        img.src = "https://placehold.co/800x500/2a2360/b48eff?text=Preview+Not+Found";
-        };
-        mediaElement = img;
+        function getActionLabel(p) {
+            if (p.demoType === 'playable_game') return '🎮 Play Game Now';
+            if (p.demoType === 'whiteboard') return '🎨 Open Whiteboard';
+            if (p.demoType === 'calculator-utility') return '🧮 Use Calculator';
+            if (p.demoType === 'stopwatch-and-precision-timer') return '⏱️ Open Stopwatch';
+            if (p.category === 'ai') return '🤖 Run AI Playground';
+            if (p.category === 'games') return '🕹️ Launch Game Demo';
+            return '⚡ Live Architecture Demo';
         }
 
-        const labelSpan = document.createElement('span');
-        labelSpan.className = 'media-label';
-        labelSpan.innerText = project.label;
+        function renderProjects(list) {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = '';
+            
+            if (list.length === 0) {
+                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #94a3b8; font-size: 1.2rem;">No matching projects found. Try another keyword!</div>';
+                return;
+            }
 
-        if (mediaElement) mediaDiv.appendChild(mediaElement);
-        mediaDiv.appendChild(labelSpan);
+            list.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                
+                let apkBtn = p.apkUrl ? `<a href="${p.apkUrl}" download class="btn-card-apk">📥 Download APK</a>` : '';
+                let actionBtn = `<button class="btn-card-action" onclick="openSim('${p.id}')">${getActionLabel(p)}</button>`;
 
-        const infoDiv = document.createElement('div');
-        infoDiv.className = 'project-info';
-        infoDiv.innerHTML = `
-        <h3>${project.title}</h3>
-        <p>${project.description}</p>
-        <a href="${project.projectLink}" target="_blank" class="project-btn" data-project="${project.title}">Explore →</a>
-        `;
-
-        card.appendChild(mediaDiv);
-        card.appendChild(infoDiv);
-        grid.appendChild(card);
-        });
+                card.innerHTML = `
+                    <div class="card-top">
+                        <span class="card-category">${p.categoryName}</span>
+                    </div>
+                    <h3 class="card-title">${p.title}</h3>
+                    <p class="card-desc">${p.description}</p>
+                    <div class="card-actions">
+                        ${actionBtn}
+                        ${apkBtn}
+                        <a href="${p.githubUrl}" target="_blank" class="btn-card-code">📂 GitHub Code</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
         }
 
-        buildProjects();
+        // Search & Filter
+        let activeCategory = 'all';
+        function filterProjects() {
+            const query = document.getElementById('projectSearch').value.toLowerCase();
+            const filtered = allProjects.filter(p => {
+                const matchCat = (activeCategory === 'all' || p.category === activeCategory);
+                const matchQuery = p.title.toLowerCase().includes(query) || p.description.toLowerCase().includes(query);
+                return matchCat && matchQuery;
+            });
+            renderProjects(filtered);
+        }
 
-        // ---------- Floating Robot & WhatsApp Redirection with correct number ----------
-        const robotContainer = document.getElementById('floatingRobot');
+        document.getElementById('projectSearch').addEventListener('input', filterProjects);
+
+        document.querySelectorAll('.pill-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                activeCategory = this.getAttribute('data-cat');
+                filterProjects();
+            });
+        });
+
+        // Modal Launcher
+        function openSim(projId) {
+            const p = allProjects.find(item => item.id === projId);
+            if (!p) return;
+            
+            const modal = document.getElementById('simModal');
+            const body = document.getElementById('modal-sim-body');
+            modal.classList.add('active');
+
+            if (p.id === 'retro-snake-engine') {
+                window.PortfolioSimulators.launchSnake(body);
+            } else if (p.id === 'arcade-space-dodger') {
+                window.PortfolioSimulators.launchSpaceDodger(body);
+            } else if (p.id === 'flappy-bird-mechanics') {
+                window.PortfolioSimulators.launchFlappy(body);
+            } else if (p.id === 'couple-canvas') {
+                window.PortfolioSimulators.launchWhiteboard(body);
+            } else if (p.id === 'calculator-utility') {
+                window.PortfolioSimulators.launchCalculator(body);
+            } else if (p.id === 'stopwatch-and-precision-timer') {
+                window.PortfolioSimulators.launchStopwatch(body);
+            } else if (p.category === 'ai') {
+                window.PortfolioSimulators.launchAiTerminal(body, p.title);
+            } else {
+                window.PortfolioSimulators.launchDashboard(body, p.title, p.description, p.githubUrl, p.apkUrl);
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('simModal').classList.remove('active');
+            window.PortfolioSimulators.cleanup();
+        }
+
+        document.getElementById('simModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Floating Robot Bubble
         const bubble = document.getElementById('speechBubble');
-        let inactivityTimer;
-        let bubbleVisible = false;
+        setTimeout(() => { if (bubble) bubble.classList.add('show'); }, 4000);
 
-        function showBubble() { if(bubble) bubble.classList.add('show'); bubbleVisible = true; }
-        function hideBubble() { if(bubble) bubble.classList.remove('show'); bubbleVisible = false; }
-
-        function resetInactivityTimer() {
-        if(inactivityTimer) clearTimeout(inactivityTimer);
-        if(bubbleVisible) hideBubble();
-        inactivityTimer = setTimeout(() => { if(!bubbleVisible) showBubble(); }, 10000);
-        }
-
-        ['mousemove', 'click', 'scroll', 'keydown'].forEach(ev => {
-        window.addEventListener(ev, resetInactivityTimer);
-        });
-        resetInactivityTimer();
-
-        // Updated WhatsApp number: 7069644783
-        const whatsappUrl = "https://wa.me/917069644783";
-        function openWhatsApp() { window.open(whatsappUrl, '_blank'); }
-        robotContainer.addEventListener('click', (e) => { e.stopPropagation(); openWhatsApp(); });
-        if(bubble) bubble.addEventListener('click', (e) => { e.stopPropagation(); openWhatsApp(); });
-
-        // Scroll reveal observer
-        const fadeElements = document.querySelectorAll('.fade-up');
-        const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-        if(entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-        }
-        });
-        }, { threshold: 0.1, rootMargin: "0px 0px -60px 0px" });
-        fadeElements.forEach(el => observer.observe(el));
-
-        // Particles background
+        // Particles
         const canvas = document.getElementById('particles-canvas');
-        let ctx = canvas.getContext('2d');
-        let width = window.innerWidth;
-        let height = window.innerHeight;
-        let particlesArray = [];
+        const ctx = canvas.getContext('2d');
+        let width, height, particles;
 
-        function resizeCanvas() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = Array.from({length: Math.min(80, Math.floor(width/15))}, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                s: Math.random() * 2 + 1
+            }));
         }
-        window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+        window.addEventListener('resize', resize);
+        resize();
 
-        class Particle {
-        constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.size = Math.random() * 2.5 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.35;
-        this.speedY = (Math.random() - 0.5) * 0.25;
-        this.color = `rgba(130, 110, 230, ${Math.random() * 0.5 + 0.2})`;
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = 'rgba(139, 92, 246, 0.4)';
+            particles.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0) p.x = width; if (p.x > width) p.x = 0;
+                if (p.y < 0) p.y = height; if (p.y > height) p.y = 0;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.s, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            requestAnimationFrame(drawParticles);
         }
-        update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if(this.x < 0) this.x = width;
-        if(this.x > width) this.x = 0;
-        if(this.y < 0) this.y = height;
-        if(this.y > height) this.y = 0;
-        }
-        draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-        }
-        }
+        drawParticles();
 
-        function initParticles() {
-        particlesArray = [];
-        let numberOfParticles = (width * height) / 8000;
-        numberOfParticles = Math.min(120, Math.max(60, numberOfParticles));
-        for (let i = 0; i < numberOfParticles; i++) particlesArray.push(new Particle());
-        }
-
-        function animateParticles() {
-        ctx.clearRect(0, 0, width, height);
-        for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-        particlesArray[i].draw();
-        }
-        requestAnimationFrame(animateParticles);
-        }
-
-        resizeCanvas();
-        initParticles();
-        animateParticles();
-
-        // Smooth scroll for view projects button & nav links
-        const viewBtn = document.getElementById('view-projects-btn');
-        if(viewBtn) {
-        viewBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-        });
-        }
-
-        document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetEl = document.getElementById(targetId);
-        if(targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
-        });
-        });
-
-        console.log("Portfolio ready — Updated with GitHub: abdulzubair1135, WhatsApp: 7069644783, LinkedIn & Email correct.");
+        // Initial Render
+        renderProjects(allProjects);
     </script>
 </body>
 </html>
