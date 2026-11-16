@@ -1,23 +1,29 @@
 // Interactive Playable Games and Functional Simulators for Abdul Zubair's Portfolio
+// Theme: Sleek Brutalist Black & White with Crimson Red Accents
 
 window.PortfolioSimulators = {
     currentInterval: null,
     
-    // 1. RETRO SNAKE GAME
+    // 1. RETRO SNAKE GAME (Black & Red Arcade Theme)
     launchSnake: function(container) {
         this.cleanup();
         container.innerHTML = `
-            <div style="text-align: center; color: #fff;">
-                <h3 style="color: #4ade80; margin-bottom: 8px;">🐍 Retro Snake Arcade Engine</h3>
-                <div style="font-size: 0.95rem; margin-bottom: 12px; color: #94a3b8;">
-                    Score: <span id="snake-score" style="color: #38bdf8; font-weight: bold;">0</span> | 
-                    High: <span id="snake-high" style="color: #facc15; font-weight: bold;">0</span> | 
-                    Controls: Arrow Keys / Swipe
+            <div style="text-align: center; color: #fff; font-family: 'Inter', sans-serif;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #27272a; padding-bottom: 10px;">
+                    <h3 style="color: #ef4444; font-weight: 700; margin: 0; font-size: 1.25rem; display: flex; align-items: center; gap: 8px;">
+                        <span>🐍</span> Retro Snake Arcade Engine
+                    </h3>
+                    <div style="font-family: monospace; font-size: 0.95rem; color: #a1a1aa;">
+                        SCORE: <span id="snake-score" style="color: #ef4444; font-weight: bold; font-size: 1.1rem;">0</span> | 
+                        HIGH: <span id="snake-high" style="color: #ffffff; font-weight: bold;">0</span>
+                    </div>
                 </div>
+                
                 <div style="display: flex; justify-content: center;">
-                    <canvas id="snake-canvas" width="400" height="400" style="background: #020617; border: 2px solid #22c55e; border-radius: 12px; box-shadow: 0 0 25px rgba(34, 197, 94, 0.3); max-width: 100%; height: auto;"></canvas>
+                    <canvas id="snake-canvas" width="400" height="400" style="background: #09090b; border: 2px solid #ef4444; border-radius: 12px; box-shadow: 0 0 30px rgba(239, 68, 68, 0.25); max-width: 100%; height: auto;"></canvas>
                 </div>
-                <div style="margin-top: 14px; display: flex; justify-content: center; gap: 8px;">
+                
+                <div style="margin-top: 16px; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap;">
                     <button class="btn-ctrl" onclick="window.PortfolioSimulators.snakeDir({keyCode: 37})">⬅️</button>
                     <div style="display: flex; flex-direction: column; gap: 6px;">
                         <button class="btn-ctrl" onclick="window.PortfolioSimulators.snakeDir({keyCode: 38})">⬆️</button>
@@ -26,6 +32,7 @@ window.PortfolioSimulators = {
                     <button class="btn-ctrl" onclick="window.PortfolioSimulators.snakeDir({keyCode: 39})">➡️</button>
                     <button id="snake-restart-btn" class="btn-action" style="margin-left: 12px;" onclick="window.PortfolioSimulators.launchSnake(document.getElementById('modal-sim-body'))">🔄 Restart</button>
                 </div>
+                <div style="font-size: 0.8rem; color: #71717a; margin-top: 8px;">Keyboard Controls: Arrow Keys (⬆️ ⬇️ ⬅️ ➡️)</div>
             </div>
         `;
         
@@ -36,7 +43,7 @@ window.PortfolioSimulators = {
         let dx = grid, dy = 0;
         let food = {x: 240, y: 240};
         let score = 0;
-        let highScore = localStorage.getItem('snake_hi') || 0;
+        let highScore = localStorage.getItem('snake_hi_red') || 0;
         document.getElementById('snake-high').innerText = highScore;
         let changingDirection = false;
         
@@ -61,10 +68,9 @@ window.PortfolioSimulators = {
         
         function mainLoop() {
             changingDirection = false;
-            // Move
             const head = {x: snake[0].x + dx, y: snake[0].y + dy};
             
-            // Wall collision (wrap around)
+            // Wall wrap-around
             if (head.x < 0) head.x = canvas.width - grid;
             if (head.x >= canvas.width) head.x = 0;
             if (head.y < 0) head.y = canvas.height - grid;
@@ -74,7 +80,7 @@ window.PortfolioSimulators = {
             for (let i = 1; i < snake.length; i++) {
                 if (head.x === snake[i].x && head.y === snake[i].y) {
                     ctx.fillStyle = '#ef4444';
-                    ctx.font = '24px Inter, sans-serif';
+                    ctx.font = 'bold 24px Inter, sans-serif';
                     ctx.textAlign = 'center';
                     ctx.fillText('GAME OVER!', canvas.width / 2, canvas.height / 2);
                     clearInterval(window.PortfolioSimulators.currentInterval);
@@ -88,7 +94,7 @@ window.PortfolioSimulators = {
                 document.getElementById('snake-score').innerText = score;
                 if (score > highScore) {
                     highScore = score;
-                    localStorage.setItem('snake_hi', highScore);
+                    localStorage.setItem('snake_hi_red', highScore);
                     document.getElementById('snake-high').innerText = highScore;
                 }
                 randomFood();
@@ -96,58 +102,79 @@ window.PortfolioSimulators = {
                 snake.pop();
             }
             
-            // Draw
-            ctx.fillStyle = '#020617';
+            // Clear
+            ctx.fillStyle = '#09090b';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-            // Draw food
+            // Grid subtle lines
+            ctx.strokeStyle = '#18181b';
+            ctx.lineWidth = 1;
+            for(let x=0; x<canvas.width; x+=grid) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+            }
+            for(let y=0; y<canvas.height; y+=grid) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+            }
+            
+            // Draw food (Glowing Crimson Orb)
             ctx.fillStyle = '#ef4444';
             ctx.shadowColor = '#ef4444';
-            ctx.shadowBlur = 12;
+            ctx.shadowBlur = 14;
             ctx.beginPath();
             ctx.arc(food.x + grid/2, food.y + grid/2, grid/2 - 2, 0, Math.PI * 2);
             ctx.fill();
             ctx.shadowBlur = 0;
             
-            // Draw snake
+            // Draw snake (Crisp White with Red accents)
             snake.forEach((part, index) => {
-                ctx.fillStyle = index === 0 ? '#4ade80' : '#22c55e';
+                ctx.fillStyle = index === 0 ? '#ffffff' : '#e4e4e7';
                 ctx.fillRect(part.x + 1, part.y + 1, grid - 2, grid - 2);
+                if (index === 0) {
+                    ctx.strokeStyle = '#ef4444';
+                    ctx.lineWidth = 2;
+                    ctx.strokeRect(part.x + 1, part.y + 1, grid - 2, grid - 2);
+                }
             });
         }
         
-        this.currentInterval = setInterval(mainLoop, 90);
+        this.currentInterval = setInterval(mainLoop, 85);
     },
     
     // 2. SPACE DODGER ARCADE GAME
     launchSpaceDodger: function(container) {
         this.cleanup();
         container.innerHTML = `
-            <div style="text-align: center; color: #fff;">
-                <h3 style="color: #38bdf8; margin-bottom: 8px;">🚀 2D Arcade Space Dodger</h3>
-                <div style="font-size: 0.95rem; margin-bottom: 12px; color: #94a3b8;">
-                    Score: <span id="space-score" style="color: #38bdf8; font-weight: bold;">0</span> | 
-                    Lives: <span id="space-lives" style="color: #f43f5e; font-weight: bold;">❤️❤️❤️</span> | 
-                    Move: A/D or Left/Right | Shoot: Space / Tap
+            <div style="text-align: center; color: #fff; font-family: 'Inter', sans-serif;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #27272a; padding-bottom: 10px;">
+                    <h3 style="color: #ef4444; font-weight: 700; margin: 0; font-size: 1.25rem;">
+                        🚀 2D Arcade Space Dodger
+                    </h3>
+                    <div style="font-family: monospace; font-size: 0.95rem; color: #a1a1aa;">
+                        SCORE: <span id="space-score" style="color: #ef4444; font-weight: bold;">0</span> | 
+                        LIVES: <span id="space-lives" style="color: #ef4444; font-weight: bold;">❤️❤️❤️</span>
+                    </div>
                 </div>
+                
                 <div style="display: flex; justify-content: center;">
-                    <canvas id="space-canvas" width="400" height="420" style="background: #030712; border: 2px solid #38bdf8; border-radius: 12px; box-shadow: 0 0 25px rgba(56, 189, 248, 0.3); max-width: 100%; height: auto;"></canvas>
+                    <canvas id="space-canvas" width="400" height="420" style="background: #000000; border: 2px solid #ef4444; border-radius: 12px; box-shadow: 0 0 30px rgba(239, 68, 68, 0.25); max-width: 100%; height: auto;"></canvas>
                 </div>
-                <div style="margin-top: 14px; display: flex; justify-content: center; gap: 10px;">
-                    <button class="btn-ctrl" onclick="window.PortfolioSimulators.spaceLeft()">⬅️ Move Left</button>
-                    <button class="btn-ctrl" style="background: #ef4444; color: white;" onclick="window.PortfolioSimulators.spaceShoot()">🔥 FIRE</button>
-                    <button class="btn-ctrl" onclick="window.PortfolioSimulators.spaceRight()">➡️ Move Right</button>
-                    <button class="btn-action" onclick="window.PortfolioSimulators.launchSpaceDodger(document.getElementById('modal-sim-body'))">🔄 Restart</button>
+                
+                <div style="margin-top: 14px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn-ctrl" onclick="window.PortfolioSimulators.spaceLeft()">⬅️ Left</button>
+                    <button class="btn-action" style="background: #ef4444;" onclick="window.PortfolioSimulators.spaceShoot()">🔥 FIRE LASER</button>
+                    <button class="btn-ctrl" onclick="window.PortfolioSimulators.spaceRight()">➡️ Right</button>
+                    <button class="btn-ctrl" onclick="window.PortfolioSimulators.launchSpaceDodger(document.getElementById('modal-sim-body'))">🔄 Restart</button>
                 </div>
+                <div style="font-size: 0.8rem; color: #71717a; margin-top: 8px;">Keys: A/D or Left/Right to move | Spacebar to Fire</div>
             </div>
         `;
         
         const canvas = document.getElementById('space-canvas');
         const ctx = canvas.getContext('2d');
-        let player = {x: 180, y: 370, w: 36, h: 28, speed: 18};
+        let player = {x: 180, y: 370, w: 36, h: 28, speed: 20};
         let lasers = [];
         let asteroids = [];
-        let stars = Array.from({length: 40}, () => ({x: Math.random()*canvas.width, y: Math.random()*canvas.height, s: Math.random()*2+1}));
+        let stars = Array.from({length: 45}, () => ({x: Math.random()*canvas.width, y: Math.random()*canvas.height, s: Math.random()*2+1}));
         let score = 0;
         let lives = 3;
         let isGameOver = false;
@@ -156,7 +183,7 @@ window.PortfolioSimulators = {
         window.PortfolioSimulators.spaceRight = () => { if (!isGameOver) player.x = Math.min(canvas.width - player.w - 10, player.x + player.speed); };
         window.PortfolioSimulators.spaceShoot = () => {
             if (!isGameOver) {
-                lasers.push({x: player.x + player.w/2 - 2, y: player.y, w: 4, h: 12, speed: 8});
+                lasers.push({x: player.x + player.w/2 - 2, y: player.y, w: 4, h: 14, speed: 9});
             }
         };
         
@@ -172,46 +199,48 @@ window.PortfolioSimulators = {
             if (isGameOver) return;
             frame++;
             
-            // Spawn asteroids
-            if (frame % 35 === 0) {
+            if (frame % 32 === 0) {
                 asteroids.push({
                     x: Math.random() * (canvas.width - 30),
                     y: -30,
-                    size: Math.random() * 20 + 16,
-                    speed: Math.random() * 2.5 + 2
+                    size: Math.random() * 22 + 16,
+                    speed: Math.random() * 2.5 + 2.2
                 });
             }
             
-            // Clear & draw stars
-            ctx.fillStyle = '#030712';
+            ctx.fillStyle = '#050505';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#94a3b8';
+            
+            // Stars
+            ctx.fillStyle = '#a1a1aa';
             stars.forEach(s => {
-                s.y += s.s * 0.8;
+                s.y += s.s * 0.9;
                 if (s.y > canvas.height) s.y = 0;
                 ctx.fillRect(s.x, s.y, s.s, s.s);
             });
             
-            // Move lasers
+            // Lasers (Crimson)
             lasers.forEach((l, li) => {
                 l.y -= l.speed;
-                ctx.fillStyle = '#38bdf8';
-                ctx.shadowColor = '#38bdf8';
-                ctx.shadowBlur = 8;
+                ctx.fillStyle = '#ef4444';
+                ctx.shadowColor = '#ef4444';
+                ctx.shadowBlur = 10;
                 ctx.fillRect(l.x, l.y, l.w, l.h);
                 ctx.shadowBlur = 0;
                 if (l.y < 0) lasers.splice(li, 1);
             });
             
-            // Move and draw asteroids
+            // Asteroids
             asteroids.forEach((a, ai) => {
                 a.y += a.speed;
-                ctx.fillStyle = '#f97316';
+                ctx.fillStyle = '#71717a';
+                ctx.strokeStyle = '#ef4444';
+                ctx.lineWidth = 1.5;
                 ctx.beginPath();
                 ctx.arc(a.x, a.y, a.size/2, 0, Math.PI*2);
                 ctx.fill();
+                ctx.stroke();
                 
-                // Check laser collision
                 lasers.forEach((l, li) => {
                     if (l.x > a.x - a.size/2 && l.x < a.x + a.size/2 && l.y > a.y - a.size/2 && l.y < a.y + a.size/2) {
                         asteroids.splice(ai, 1);
@@ -221,7 +250,6 @@ window.PortfolioSimulators = {
                     }
                 });
                 
-                // Check player collision
                 if (a.y + a.size/2 > player.y && a.x > player.x && a.x < player.x + player.w) {
                     asteroids.splice(ai, 1);
                     lives--;
@@ -231,9 +259,9 @@ window.PortfolioSimulators = {
                     if (lives <= 0) {
                         isGameOver = true;
                         ctx.fillStyle = '#ef4444';
-                        ctx.font = '26px Inter, sans-serif';
+                        ctx.font = 'bold 26px Inter, sans-serif';
                         ctx.textAlign = 'center';
-                        ctx.fillText('FLEET DESTROYED!', canvas.width/2, canvas.height/2);
+                        ctx.fillText('MISSION FAILED!', canvas.width/2, canvas.height/2);
                         clearInterval(window.PortfolioSimulators.currentInterval);
                     }
                 }
@@ -241,21 +269,22 @@ window.PortfolioSimulators = {
                 if (a.y > canvas.height + 30) asteroids.splice(ai, 1);
             });
             
-            // Draw player ship
-            ctx.fillStyle = '#a855f7';
+            // Ship (Titanium White with Red Engine Glow)
+            ctx.fillStyle = '#ffffff';
             ctx.beginPath();
             ctx.moveTo(player.x + player.w/2, player.y);
             ctx.lineTo(player.x + player.w, player.y + player.h);
+            ctx.lineTo(player.x + player.w/2, player.y + player.h - 6);
             ctx.lineTo(player.x, player.y + player.h);
             ctx.closePath();
             ctx.fill();
             
-            // Ship engine flame
-            ctx.fillStyle = '#f59e0b';
+            // Engine flame
+            ctx.fillStyle = '#ef4444';
             ctx.beginPath();
-            ctx.moveTo(player.x + player.w/2 - 5, player.y + player.h);
-            ctx.lineTo(player.x + player.w/2 + 5, player.y + player.h);
-            ctx.lineTo(player.x + player.w/2, player.y + player.h + 10 + Math.random()*6);
+            ctx.moveTo(player.x + player.w/2 - 4, player.y + player.h);
+            ctx.lineTo(player.x + player.w/2 + 4, player.y + player.h);
+            ctx.lineTo(player.x + player.w/2, player.y + player.h + 12 + Math.random()*8);
             ctx.closePath();
             ctx.fill();
         }
@@ -263,36 +292,38 @@ window.PortfolioSimulators = {
         this.currentInterval = setInterval(loop, 1000/60);
     },
     
-    // 3. FLAPPY BIRD FLIGHT
+    // 3. FLAPPY FLIGHT
     launchFlappy: function(container) {
         this.cleanup();
         container.innerHTML = `
-            <div style="text-align: center; color: #fff;">
-                <h3 style="color: #facc15; margin-bottom: 8px;">🐥 Flappy Flight Mechanics Engine</h3>
-                <div style="font-size: 0.95rem; margin-bottom: 12px; color: #94a3b8;">
-                    Score: <span id="flappy-score" style="color: #facc15; font-weight: bold;">0</span> | 
-                    Controls: Space Bar / Click Canvas to Flap
+            <div style="text-align: center; color: #fff; font-family: 'Inter', sans-serif;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #27272a; padding-bottom: 10px;">
+                    <h3 style="color: #ef4444; font-weight: 700; margin: 0; font-size: 1.25rem;">
+                        🐥 Flappy Flight Physics Engine
+                    </h3>
+                    <div style="font-family: monospace; font-size: 0.95rem; color: #a1a1aa;">
+                        SCORE: <span id="flappy-score" style="color: #ef4444; font-weight: bold; font-size: 1.1rem;">0</span>
+                    </div>
                 </div>
                 <div style="display: flex; justify-content: center;">
-                    <canvas id="flappy-canvas" width="380" height="420" style="background: #0f172a; border: 2px solid #facc15; border-radius: 12px; cursor: pointer; max-width: 100%; height: auto;"></canvas>
+                    <canvas id="flappy-canvas" width="380" height="420" style="background: #09090b; border: 2px solid #ef4444; border-radius: 12px; cursor: pointer; max-width: 100%; height: auto;"></canvas>
                 </div>
                 <div style="margin-top: 14px;">
-                    <button class="btn-action" onclick="window.PortfolioSimulators.launchFlappy(document.getElementById('modal-sim-body'))">🔄 Restart</button>
+                    <button class="btn-action" onclick="window.PortfolioSimulators.launchFlappy(document.getElementById('modal-sim-body'))">🔄 Restart Flight</button>
                 </div>
+                <div style="font-size: 0.8rem; color: #71717a; margin-top: 8px;">Click Canvas or Press Spacebar to Flap</div>
             </div>
         `;
         
         const canvas = document.getElementById('flappy-canvas');
         const ctx = canvas.getContext('2d');
-        let bird = {x: 60, y: 180, vy: 0, gravity: 0.35, jump: -6.5, radius: 14};
+        let bird = {x: 60, y: 180, vy: 0, gravity: 0.35, jump: -6.5, radius: 13};
         let pipes = [];
         let score = 0;
         let isOver = false;
         let frame = 0;
         
-        function flap() {
-            if (!isOver) bird.vy = bird.jump;
-        }
+        function flap() { if (!isOver) bird.vy = bird.jump; }
         canvas.addEventListener('click', flap);
         window.addEventListener('keydown', (e) => { if (e.keyCode === 32) { e.preventDefault(); flap(); } });
         
@@ -300,38 +331,37 @@ window.PortfolioSimulators = {
             if (isOver) return;
             frame++;
             
-            // Physics
             bird.vy += bird.gravity;
             bird.y += bird.vy;
             
-            // Spawn pipes
             if (frame % 85 === 0) {
                 let gap = 110;
                 let topH = Math.random() * (canvas.height - gap - 80) + 30;
-                pipes.push({x: canvas.width, top: topH, bottom: topH + gap, w: 46, passed: false});
+                pipes.push({x: canvas.width, top: topH, bottom: topH + gap, w: 48, passed: false});
             }
             
-            // Clear
-            ctx.fillStyle = '#0f172a';
+            ctx.fillStyle = '#09090b';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-            // Pipes
             for (let i = 0; i < pipes.length; i++) {
                 let p = pipes[i];
                 p.x -= 2.2;
                 
-                ctx.fillStyle = '#22c55e';
+                ctx.fillStyle = '#27272a';
+                ctx.strokeStyle = '#ef4444';
+                ctx.lineWidth = 1.5;
                 ctx.fillRect(p.x, 0, p.w, p.top);
-                ctx.fillRect(p.x, p.bottom, p.w, canvas.height - p.bottom);
+                ctx.strokeRect(p.x, 0, p.w, p.top);
                 
-                // Collision
+                ctx.fillRect(p.x, p.bottom, p.w, canvas.height - p.bottom);
+                ctx.strokeRect(p.x, p.bottom, p.w, canvas.height - p.bottom);
+                
                 if (bird.x + bird.radius > p.x && bird.x - bird.radius < p.x + p.w) {
                     if (bird.y - bird.radius < p.top || bird.y + bird.radius > p.bottom) {
                         gameOver();
                     }
                 }
                 
-                // Score
                 if (!p.passed && p.x + p.w < bird.x) {
                     p.passed = true;
                     score++;
@@ -340,28 +370,29 @@ window.PortfolioSimulators = {
             }
             pipes = pipes.filter(p => p.x + p.w > 0);
             
-            // Ground/ceiling collision
             if (bird.y + bird.radius >= canvas.height || bird.y - bird.radius <= 0) {
                 gameOver();
             }
             
-            // Draw Bird
-            ctx.fillStyle = '#facc15';
+            // Bird (Crimson with White Eye)
+            ctx.fillStyle = '#ef4444';
+            ctx.shadowColor = '#ef4444';
+            ctx.shadowBlur = 10;
             ctx.beginPath();
             ctx.arc(bird.x, bird.y, bird.radius, 0, Math.PI * 2);
             ctx.fill();
+            ctx.shadowBlur = 0;
             
-            // Eye
-            ctx.fillStyle = '#000';
+            ctx.fillStyle = '#ffffff';
             ctx.beginPath();
-            ctx.arc(bird.x + 6, bird.y - 4, 3, 0, Math.PI * 2);
+            ctx.arc(bird.x + 5, bird.y - 3, 3.5, 0, Math.PI * 2);
             ctx.fill();
         }
         
         function gameOver() {
             isOver = true;
             ctx.fillStyle = '#ef4444';
-            ctx.font = '24px Inter, sans-serif';
+            ctx.font = 'bold 24px Inter, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText('CRASHED! FINAL: ' + score, canvas.width / 2, canvas.height / 2);
             clearInterval(window.PortfolioSimulators.currentInterval);
@@ -374,17 +405,21 @@ window.PortfolioSimulators = {
     launchWhiteboard: function(container) {
         this.cleanup();
         container.innerHTML = `
-            <div style="text-align: center; color: #fff;">
-                <h3 style="color: #ec4899; margin-bottom: 8px;">🎨 Couple Canvas: Live WebRTC Drawing Whiteboard</h3>
-                <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 12px;">Draw gestures, collaborative diagrams, or sketches directly on the canvas!</p>
+            <div style="text-align: center; color: #fff; font-family: 'Inter', sans-serif;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #27272a; padding-bottom: 10px;">
+                    <h3 style="color: #ef4444; font-weight: 700; margin: 0; font-size: 1.25rem;">
+                        🎨 Couple Canvas: Live WebRTC Drawing Whiteboard
+                    </h3>
+                    <span style="font-size: 0.8rem; color: #71717a;">Low-Latency Vector Sync</span>
+                </div>
                 <div style="display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
-                    <label>Color: <input type="color" id="wb-color" value="#ec4899" style="cursor: pointer;"></label>
-                    <label>Width: <input type="range" id="wb-width" min="1" max="25" value="4"></label>
+                    <label style="color: #a1a1aa; font-size: 0.9rem;">Color: <input type="color" id="wb-color" value="#ef4444" style="cursor: pointer; background: none; border: 1px solid #3f3f46; border-radius: 4px;"></label>
+                    <label style="color: #a1a1aa; font-size: 0.9rem;">Stroke: <input type="range" id="wb-width" min="1" max="25" value="4"></label>
                     <button class="btn-ctrl" onclick="window.PortfolioSimulators.wbClear()">🧹 Clear</button>
-                    <button class="btn-action" onclick="window.PortfolioSimulators.wbDownload()">💾 Save Art</button>
+                    <button class="btn-action" onclick="window.PortfolioSimulators.wbDownload()">💾 Save Artwork</button>
                 </div>
                 <div style="display: flex; justify-content: center;">
-                    <canvas id="wb-canvas" width="550" height="380" style="background: #111827; border: 2px solid #ec4899; border-radius: 12px; cursor: crosshair; max-width: 100%; height: auto; touch-action: none;"></canvas>
+                    <canvas id="wb-canvas" width="550" height="380" style="background: #09090b; border: 2px solid #ef4444; border-radius: 12px; cursor: crosshair; max-width: 100%; height: auto; touch-action: none;"></canvas>
                 </div>
             </div>
         `;
@@ -420,12 +455,12 @@ window.PortfolioSimulators = {
         canvas.addEventListener('touchmove', draw);
         
         window.PortfolioSimulators.wbClear = () => {
-            ctx.fillStyle = '#111827';
+            ctx.fillStyle = '#09090b';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         };
         window.PortfolioSimulators.wbDownload = () => {
             const link = document.createElement('a');
-            link.download = 'Abdul_Zubair_CoupleCanvas_Art.png';
+            link.download = 'Abdul_Zubair_CoupleCanvas_Artwork.png';
             link.href = canvas.toDataURL();
             link.click();
         };
@@ -436,9 +471,9 @@ window.PortfolioSimulators = {
     launchCalculator: function(container) {
         this.cleanup();
         container.innerHTML = `
-            <div style="max-width: 320px; margin: 0 auto; background: #0f172a; border: 2px solid #6366f1; border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);">
-                <h4 style="text-align: center; color: #818cf8; margin-bottom: 12px;">🧮 Precision Expression Calculator</h4>
-                <input type="text" id="calc-display" readonly value="0" style="width: 100%; height: 50px; background: #020617; border: 1px solid #334155; border-radius: 8px; color: #38bdf8; font-size: 1.5rem; text-align: right; padding: 10px; margin-bottom: 15px; font-family: monospace;">
+            <div style="max-width: 320px; margin: 0 auto; background: #09090b; border: 2px solid #ef4444; border-radius: 16px; padding: 20px; box-shadow: 0 10px 35px rgba(239, 68, 68, 0.2);">
+                <h4 style="text-align: center; color: #ef4444; margin-bottom: 12px; font-weight: 700;">🧮 Precision Expression Calculator</h4>
+                <input type="text" id="calc-display" readonly value="0" style="width: 100%; height: 50px; background: #18181b; border: 1px solid #27272a; border-radius: 8px; color: #ffffff; font-size: 1.5rem; text-align: right; padding: 10px; margin-bottom: 15px; font-family: monospace;">
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
                     <button class="calc-btn" onclick="window.PortfolioSimulators.calcPress('C')" style="background: #ef4444; color: white;">C</button>
                     <button class="calc-btn" onclick="window.PortfolioSimulators.calcPress('(')">(</button>
@@ -462,7 +497,7 @@ window.PortfolioSimulators = {
                     
                     <button class="calc-btn" onclick="window.PortfolioSimulators.calcPress('0')" style="grid-column: span 2;">0</button>
                     <button class="calc-btn" onclick="window.PortfolioSimulators.calcPress('.')">.</button>
-                    <button class="calc-btn" onclick="window.PortfolioSimulators.calcPress('=')" style="background: #22c55e; color: white;">=</button>
+                    <button class="calc-btn" onclick="window.PortfolioSimulators.calcPress('=')" style="background: #ef4444; color: white;">=</button>
                 </div>
             </div>
         `;
@@ -486,19 +521,19 @@ window.PortfolioSimulators = {
         };
     },
     
-    // 6. STOPWATCH & PRECISION TIMER
+    // 6. STOPWATCH & TIMER
     launchStopwatch: function(container) {
         this.cleanup();
         container.innerHTML = `
-            <div style="text-align: center; color: #fff; max-width: 380px; margin: 0 auto; background: #0f172a; padding: 24px; border-radius: 16px; border: 2px solid #10b981;">
-                <h3 style="color: #34d399; margin-bottom: 12px;">⏱️ High-Precision Stopwatch</h3>
-                <div id="sw-time" style="font-family: monospace; font-size: 2.8rem; color: #38bdf8; margin: 15px 0;">00:00:00.00</div>
+            <div style="text-align: center; color: #fff; max-width: 380px; margin: 0 auto; background: #09090b; padding: 24px; border-radius: 16px; border: 2px solid #ef4444; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);">
+                <h3 style="color: #ef4444; margin-bottom: 12px; font-weight: 700;">⏱️ High-Precision Stopwatch</h3>
+                <div id="sw-time" style="font-family: monospace; font-size: 2.8rem; color: #ffffff; margin: 15px 0;">00:00:00.00</div>
                 <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 18px;">
                     <button id="sw-start-btn" class="btn-action" onclick="window.PortfolioSimulators.swStart()">Start</button>
                     <button class="btn-ctrl" onclick="window.PortfolioSimulators.swLap()">Lap</button>
-                    <button class="btn-ctrl" style="background: #ef4444;" onclick="window.PortfolioSimulators.swReset()">Reset</button>
+                    <button class="btn-ctrl" style="background: #27272a;" onclick="window.PortfolioSimulators.swReset()">Reset</button>
                 </div>
-                <div id="sw-laps" style="max-height: 140px; overflow-y: auto; text-align: left; font-family: monospace; font-size: 0.9rem; color: #94a3b8; border-top: 1px solid #334155; padding-top: 8px;"></div>
+                <div id="sw-laps" style="max-height: 140px; overflow-y: auto; text-align: left; font-family: monospace; font-size: 0.9rem; color: #a1a1aa; border-top: 1px solid #27272a; padding-top: 8px;"></div>
             </div>
         `;
         
@@ -521,12 +556,12 @@ window.PortfolioSimulators = {
                 }, 20);
                 running = true;
                 btn.innerText = 'Pause';
-                btn.style.background = '#f59e0b';
+                btn.style.background = '#27272a';
             } else {
                 clearInterval(swTimer);
                 running = false;
                 btn.innerText = 'Resume';
-                btn.style.background = '#22c55e';
+                btn.style.background = '#ef4444';
             }
         };
         
@@ -534,7 +569,7 @@ window.PortfolioSimulators = {
             if (!running && elapsed === 0) return;
             lapCount++;
             const lDiv = document.getElementById('sw-laps');
-            lDiv.innerHTML = `<div>Lap ${lapCount}: ${format(elapsed)}</div>` + lDiv.innerHTML;
+            lDiv.innerHTML = `<div style="padding: 2px 0;">Lap ${lapCount}: ${format(elapsed)}</div>` + lDiv.innerHTML;
         };
         
         window.PortfolioSimulators.swReset = () => {
@@ -546,27 +581,28 @@ window.PortfolioSimulators = {
             document.getElementById('sw-laps').innerHTML = '';
             const btn = document.getElementById('sw-start-btn');
             btn.innerText = 'Start';
-            btn.style.background = '#22c55e';
+            btn.style.background = '#ef4444';
         };
     },
     
-    // 7. AI AGENT TERMINAL CONSOLE
+    // 7. AI AGENT TERMINAL CONSOLE (Cyber Black & Red Theme)
     launchAiTerminal: function(container, projTitle) {
         this.cleanup();
         container.innerHTML = `
-            <div style="background: #020617; border: 2px solid #8b5cf6; border-radius: 12px; padding: 18px; font-family: 'Fira Code', monospace; color: #a78bfa; max-width: 600px; margin: 0 auto; box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);">
-                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 12px; font-size: 0.85rem; color: #94a3b8;">
-                    <span>🤖 [AI Playground]: ${projTitle}</span>
-                    <span>Status: ONLINE 🟢</span>
+            <div style="background: #09090b; border: 2px solid #ef4444; border-radius: 12px; padding: 20px; font-family: 'Fira Code', monospace; color: #f4f4f5; max-width: 650px; margin: 0 auto; box-shadow: 0 10px 35px rgba(239, 68, 68, 0.25);">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #27272a; padding-bottom: 10px; margin-bottom: 14px; font-size: 0.85rem; color: #a1a1aa;">
+                    <span style="color: #ef4444; font-weight: bold;">[TERMINAL] ❯ ${projTitle}</span>
+                    <span style="color: #22c55e;">STATUS: ONLINE ●</span>
                 </div>
-                <div id="ai-log" style="height: 240px; overflow-y: auto; font-size: 0.85rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 12px; background: #030712; padding: 10px; border-radius: 8px; border: 1px solid #1e293b;">
-                    <div style="color: #38bdf8;">[INIT] Loading autonomous neural weights... Done.</div>
-                    <div style="color: #4ade80;">[AGENT] Connected to tool registry: (Playwright, FFMPEG, Local LLM, Arduino).</div>
-                    <div style="color: #facc15;">Type 'help', 'run', 'agent status', or any prompt below:</div>
+                <div id="ai-log" style="height: 250px; overflow-y: auto; font-size: 0.88rem; line-height: 1.6; color: #e4e4e7; margin-bottom: 14px; background: #000000; padding: 12px; border-radius: 8px; border: 1px solid #18181b;">
+                    <div style="color: #ef4444;">❯ Initializing ${projTitle} execution environment...</div>
+                    <div style="color: #a1a1aa;">[STACK] Loaded: Local Quantized Inference, Arduino Serial Driver, Headless FFMPEG, WebSockets.</div>
+                    <div style="color: #22c55e;">[READY] System operational. Enter commands: 'help', 'status', 'scan mesh', 'run pipeline', 'clear'.</div>
                 </div>
                 <div style="display: flex; gap: 8px;">
-                    <input type="text" id="ai-input" placeholder="Type prompt (e.g., 'generate video', 'scan mesh')..." style="flex: 1; background: #0f172a; border: 1px solid #475569; border-radius: 6px; padding: 8px 12px; color: #fff; font-family: monospace;" onkeydown="if(event.key==='Enter') window.PortfolioSimulators.aiExec()">
-                    <button class="btn-action" onclick="window.PortfolioSimulators.aiExec()">Execute</button>
+                    <span style="color: #ef4444; font-weight: bold; font-size: 1.1rem; line-height: 2.2;">❯</span>
+                    <input type="text" id="ai-input" placeholder="Type command or prompt..." style="flex: 1; background: #18181b; border: 1px solid #27272a; border-radius: 6px; padding: 9px 12px; color: #fff; font-family: monospace; outline: none;" onkeydown="if(event.key==='Enter') window.PortfolioSimulators.aiExec()">
+                    <button class="btn-action" onclick="window.PortfolioSimulators.aiExec()">Run</button>
                 </div>
             </div>
         `;
@@ -576,64 +612,69 @@ window.PortfolioSimulators = {
             const log = document.getElementById('ai-log');
             const cmd = inp.value.trim();
             if (!cmd) return;
-            log.innerHTML += `<div style="color: #f43f5e;">> ${cmd}</div>`;
+            log.innerHTML += `<div style="color: #ef4444; margin-top: 4px;">❯ ${cmd}</div>`;
             inp.value = '';
             
             setTimeout(() => {
-                if (cmd.toLowerCase() === 'help') {
-                    log.innerHTML += `<div style="color: #94a3b8;">Commands: run, status, scan, mesh, compile, generate, clear</div>`;
-                } else if (cmd.toLowerCase() === 'clear') {
+                const lower = cmd.toLowerCase();
+                if (lower === 'help') {
+                    log.innerHTML += `<div style="color: #a1a1aa;">Available commands: help, status, scan mesh, run pipeline, arduino status, clear</div>`;
+                } else if (lower === 'clear') {
                     log.innerHTML = '';
-                } else if (cmd.toLowerCase().includes('status')) {
-                    log.innerHTML += `<div style="color: #4ade80;">[SYSTEM] All models active: PyTorch 2.4, VOSK Speech Engine, Playwright Driver active. Memory: 128MB.</div>`;
-                } else if (cmd.toLowerCase().includes('video') || cmd.toLowerCase().includes('generate')) {
-                    log.innerHTML += `<div style="color: #38bdf8;">[PLAN] Generating short video: Topic parsed -> Voice synthesis (EdgeTTS) -> Subtitle alignment -> Headless FFMPEG render: SUCCESS.</div>`;
+                } else if (lower.includes('status')) {
+                    log.innerHTML += `<div style="color: #22c55e;">[STATUS] CPU: 1.2% | RAM: 142MB | Core Model: Ready | Hardware Bus: Connected (COM3 / 115200 baud).</div>`;
+                } else if (lower.includes('mesh') || lower.includes('scan')) {
+                    log.innerHTML += `<div style="color: #38bdf8;">[MESH-ROUTING] Discovered 4 peer nodes via BLE / Wi-Fi Direct multi-hop. Packet loss: 0.00%. Zero internet required.</div>`;
+                } else if (lower.includes('arduino') || lower.includes('iot')) {
+                    log.innerHTML += `<div style="color: #facc15;">[ARDUINO UNO] GPIO Pins 2-13 synced. Sensor telemetry polling at 20Hz. Relay triggers active.</div>`;
+                } else if (lower.includes('pipeline') || lower.includes('video')) {
+                    log.innerHTML += `<div style="color: #a855f7;">[AI-CREATOR] Synthesizing script -> EdgeTTS vocal track -> FFMPEG dynamic captions -> Vertical 9:16 export finished!</div>`;
                 } else {
-                    log.innerHTML += `<div style="color: #a855f7;">[AI RESPONSE] "${cmd}" processed successfully via ${projTitle} inference pipeline. Output generated with 0 errors.</div>`;
+                    log.innerHTML += `<div style="color: #f4f4f5;">[INFERENCE] Command "${cmd}" processed through ${projTitle} pipeline. Exit status: 0 (SUCCESS).</div>`;
                 }
                 log.scrollTop = log.scrollHeight;
-            }, 300);
+            }, 250);
         };
     },
     
-    // 8. LIVE ENTERPRISE & ANDROID DASHBOARD SIMULATOR
+    // 8. LIVE ENTERPRISE & ARCHITECTURE DASHBOARD
     launchDashboard: function(container, projTitle, projDesc, githubUrl, apkUrl) {
         this.cleanup();
-        let apkButtonHtml = apkUrl ? `<a href="${apkUrl}" download class="btn-action" style="background: #22c55e; margin-right: 8px;">📥 Download Verified APK</a>` : '';
+        let apkButtonHtml = apkUrl ? `<a href="${apkUrl}" download class="btn-action" style="background: #ef4444; margin-right: 8px;">📥 Download Verified APK</a>` : '';
         
         container.innerHTML = `
-            <div style="background: #0f172a; border: 2px solid #3b82f6; border-radius: 14px; padding: 20px; color: #fff; max-width: 650px; margin: 0 auto; box-shadow: 0 10px 35px rgba(59, 130, 246, 0.25);">
-                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 12px; margin-bottom: 16px;">
+            <div style="background: #09090b; border: 2px solid #ef4444; border-radius: 14px; padding: 22px; color: #fff; max-width: 680px; margin: 0 auto; box-shadow: 0 10px 35px rgba(239, 68, 68, 0.2); font-family: 'Inter', sans-serif;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #27272a; padding-bottom: 12px; margin-bottom: 16px;">
                     <div>
-                        <h3 style="color: #60a5fa; margin: 0;">${projTitle}</h3>
-                        <span style="font-size: 0.8rem; color: #94a3b8;">Live Architecture Simulation & Production Specs</span>
+                        <h3 style="color: #ffffff; font-weight: 700; margin: 0; font-size: 1.3rem;">${projTitle}</h3>
+                        <span style="font-size: 0.8rem; color: #a1a1aa;">Architectural Diagnostic & System Verification</span>
                     </div>
-                    <span style="background: #1e3a8a; color: #93c5fd; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">LIVE SYSTEM</span>
+                    <span style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid #ef4444; padding: 4px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;">LIVE PRODUCTION SPEC</span>
                 </div>
                 
-                <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.5; margin-bottom: 18px;">${projDesc}</p>
+                <p style="color: #d4d4d8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">${projDesc}</p>
                 
-                <div style="background: #020617; border-radius: 10px; padding: 14px; margin-bottom: 18px; border: 1px solid #1e293b;">
-                    <div style="font-size: 0.85rem; color: #38bdf8; margin-bottom: 8px; font-weight: bold;">⚡ Live System Diagnostics:</div>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.85rem; text-align: center;">
-                        <div style="background: #0f172a; padding: 8px; border-radius: 6px;">
-                            <div style="color: #94a3b8;">Latency</div>
-                            <div style="color: #4ade80; font-weight: bold;">12 ms</div>
+                <div style="background: #000000; border-radius: 10px; padding: 16px; margin-bottom: 20px; border: 1px solid #18181b;">
+                    <div style="font-size: 0.85rem; color: #ef4444; margin-bottom: 10px; font-weight: 700;">⚡ Production Engineering Metrics:</div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 0.85rem; text-align: center;">
+                        <div style="background: #121215; padding: 10px; border-radius: 8px; border: 1px solid #27272a;">
+                            <div style="color: #71717a; font-size: 0.75rem; text-transform: uppercase;">Average Latency</div>
+                            <div style="color: #ffffff; font-weight: 700; font-size: 1.1rem; margin-top: 4px;">12 ms</div>
                         </div>
-                        <div style="background: #0f172a; padding: 8px; border-radius: 6px;">
-                            <div style="color: #94a3b8;">Uptime</div>
-                            <div style="color: #38bdf8; font-weight: bold;">99.98%</div>
+                        <div style="background: #121215; padding: 10px; border-radius: 8px; border: 1px solid #27272a;">
+                            <div style="color: #71717a; font-size: 0.75rem; text-transform: uppercase;">Availability</div>
+                            <div style="color: #ffffff; font-weight: 700; font-size: 1.1rem; margin-top: 4px;">99.98%</div>
                         </div>
-                        <div style="background: #0f172a; padding: 8px; border-radius: 6px;">
-                            <div style="color: #94a3b8;">Encrypted</div>
-                            <div style="color: #a855f7; font-weight: bold;">AES-256 GCM</div>
+                        <div style="background: #121215; padding: 10px; border-radius: 8px; border: 1px solid #27272a;">
+                            <div style="color: #71717a; font-size: 0.75rem; text-transform: uppercase;">Security Protocol</div>
+                            <div style="color: #ef4444; font-weight: 700; font-size: 1.05rem; margin-top: 4px;">AES-256 GCM</div>
                         </div>
                     </div>
                 </div>
                 
                 <div style="display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap;">
                     ${apkButtonHtml}
-                    <a href="${githubUrl}" target="_blank" class="btn-action">📂 View Full Source Code on GitHub →</a>
+                    <a href="${githubUrl}" target="_blank" class="btn-action">📂 View Source Code on GitHub →</a>
                 </div>
             </div>
         `;
