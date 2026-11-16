@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Shaikh Abdul Zubair Abdul Kabir - Master Engineering Portfolio. Systems, Android Offline Mesh, Autonomous AI, and Game Engines.">
     <meta name="author" content="Shaikh Abdul Zubair Abdul Kabir">
-    <title>Shaikh Abdul Zubair | Systems & Software Engineer</title>
+    <title>Shaikh Abdul Zubair | Systems & Software Engineer (69 Projects & 15 APKs)</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,8 @@
             --red-primary: #ef4444;
             --red-dark: #b91c1c;
             --red-glow: rgba(239, 68, 68, 0.35);
+            --green-apk: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.3);
             --text-white: #ffffff;
             --text-silver: #f4f4f5;
             --text-muted: #a1a1aa;
@@ -43,7 +45,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Clean Technical Grid Background */
+        /* Subtle Dark Grid */
         body::before {
             content: '';
             position: fixed;
@@ -52,15 +54,15 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
             background-size: 44px 44px;
             pointer-events: none;
             z-index: 0;
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 1.5rem;
             position: relative;
@@ -72,7 +74,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(0, 0, 0, 0.88);
+            background: rgba(0, 0, 0, 0.92);
             backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border-subtle);
         }
@@ -82,6 +84,7 @@
             align-items: center;
             justify-content: space-between;
             height: 72px;
+            gap: 1rem;
         }
 
         .brand-logo {
@@ -90,11 +93,12 @@
             gap: 12px;
             text-decoration: none;
             color: var(--text-white);
+            flex-shrink: 0;
         }
 
         .brand-avatar {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 8px;
             border: 1px solid var(--border-subtle);
             background: var(--bg-surface);
@@ -114,7 +118,7 @@
         }
 
         .brand-info p {
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             color: var(--text-muted);
             font-family: 'JetBrains Mono', monospace;
         }
@@ -122,18 +126,21 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.6rem;
+            overflow-x: auto;
+            scrollbar-width: none;
         }
 
         .nav-btn {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 7px 14px;
-            font-size: 0.82rem;
+            padding: 7px 13px;
+            font-size: 0.8rem;
             font-weight: 600;
             border-radius: 6px;
             text-decoration: none;
+            white-space: nowrap;
             transition: all 0.2s ease;
         }
 
@@ -147,6 +154,18 @@
             background: #27272a;
             border-color: #3f3f46;
             color: #ffffff;
+        }
+
+        .nav-btn-apk {
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+            border: 1px solid rgba(74, 222, 128, 0.4);
+        }
+
+        .nav-btn-apk:hover {
+            background: rgba(34, 197, 94, 0.25);
+            border-color: #4ade80;
+            box-shadow: 0 0 12px var(--green-glow);
         }
 
         .nav-btn-red {
@@ -163,7 +182,7 @@
 
         /* HERO SECTION */
         .hero {
-            padding: 5rem 0 3.5rem;
+            padding: 4.5rem 0 3rem;
             border-bottom: 1px solid var(--border-subtle);
         }
 
@@ -198,7 +217,7 @@
             line-height: 1.1;
             letter-spacing: -0.04em;
             margin-bottom: 1.5rem;
-            max-width: 950px;
+            max-width: 980px;
         }
 
         .hero-title span.accent {
@@ -208,16 +227,51 @@
         .hero-bio {
             font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 780px;
+            max-width: 820px;
             margin-bottom: 2rem;
             line-height: 1.6;
+        }
+
+        /* APK BANNER IN HERO */
+        .hero-apk-callout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(90deg, rgba(34, 197, 94, 0.08) 0%, rgba(24, 24, 27, 0.8) 100%);
+            border: 1px solid rgba(34, 197, 94, 0.35);
+            border-radius: 8px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-apk-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-apk-icon {
+            font-size: 1.8rem;
+        }
+
+        .hero-apk-text strong {
+            color: #4ade80;
+            font-size: 0.95rem;
+            display: block;
+        }
+
+        .hero-apk-text span {
+            font-size: 0.8rem;
+            color: var(--text-silver);
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
         }
 
         .btn-primary {
@@ -237,6 +291,26 @@
 
         .btn-primary:hover {
             background: var(--red-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-apk-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #166534;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px var(--green-glow);
+        }
+
+        .btn-apk-hero:hover {
+            background: #15803d;
             transform: translateY(-1px);
         }
 
@@ -261,11 +335,11 @@
             color: #ffffff;
         }
 
-        /* METRIC STATS STRIP */
+        /* STATS STRIP */
         .stats-strip {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            gap: 1.25rem;
             padding: 2rem 0 3.5rem;
             border-bottom: 1px solid var(--border-subtle);
         }
@@ -290,8 +364,12 @@
             color: var(--red-primary);
         }
 
+        .stat-num span.green {
+            color: #4ade80;
+        }
+
         .stat-tag {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             margin-top: 4px;
             text-transform: uppercase;
@@ -300,7 +378,7 @@
 
         /* SECTION HEADERS */
         .section-header {
-            margin-bottom: 2rem;
+            margin-bottom: 1.75rem;
         }
 
         .section-kicker {
@@ -323,7 +401,7 @@
             font-size: 0.95rem;
             color: var(--text-muted);
             margin-top: 6px;
-            max-width: 650px;
+            max-width: 700px;
         }
 
         /* OVERVIEW / FEATURED SPOTLIGHT GRID */
@@ -433,19 +511,21 @@
             align-items: center;
             gap: 6px;
             padding: 8px 14px;
-            background: #18181b;
+            background: rgba(34, 197, 94, 0.15);
             color: #4ade80;
-            border: 1px solid rgba(74, 222, 128, 0.4);
+            border: 1px solid rgba(74, 222, 128, 0.5);
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 5px;
             text-decoration: none;
             transition: all 0.2s;
         }
 
         .btn-action-apk:hover {
-            background: rgba(74, 222, 128, 0.15);
-            border-color: #4ade80;
+            background: #166534;
+            color: #ffffff;
+            border-color: #22c55e;
+            box-shadow: 0 0 10px var(--green-glow);
         }
 
         .btn-action-code {
@@ -492,11 +572,14 @@
         }
 
         .filter-pill {
-            padding: 6px 14px;
-            font-size: 0.82rem;
-            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
             background: var(--bg-surface);
-            color: var(--text-muted);
+            color: var(--text-silver);
             border: 1px solid var(--border-subtle);
             border-radius: 6px;
             cursor: pointer;
@@ -512,17 +595,23 @@
             background: var(--red-primary);
             color: #ffffff;
             border-color: var(--red-primary);
-            font-weight: 600;
+            box-shadow: 0 0 14px var(--red-glow);
+        }
+
+        .filter-pill[data-sec="apk"].active {
+            background: #166534;
+            border-color: #22c55e;
+            box-shadow: 0 0 14px var(--green-glow);
         }
 
         .search-input-wrapper {
             position: relative;
-            min-width: 280px;
+            min-width: 290px;
         }
 
         .search-input {
             width: 100%;
-            padding: 8px 14px 8px 36px;
+            padding: 9px 14px 9px 38px;
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
             border-radius: 6px;
@@ -558,7 +647,7 @@
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
             border-radius: 8px;
-            padding: 1.25rem;
+            padding: 1.35rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -568,29 +657,39 @@
         .project-card:hover {
             border-color: #3f3f46;
             background: #141417;
+            transform: translateY(-1px);
         }
 
         .card-meta {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.75rem;
         }
 
         .card-cat {
-            font-size: 0.72rem;
-            color: var(--text-muted);
+            font-size: 0.75rem;
+            color: var(--text-silver);
             font-family: 'JetBrains Mono', monospace;
+            background: #18181b;
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid var(--border-subtle);
         }
 
-        .card-id {
-            font-size: 0.7rem;
-            color: var(--text-dim);
+        .badge-apk {
+            font-size: 0.72rem;
+            color: #4ade80;
             font-family: 'JetBrains Mono', monospace;
+            background: rgba(34, 197, 94, 0.12);
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid rgba(74, 222, 128, 0.4);
+            font-weight: 700;
         }
 
         .card-title {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 0.5rem;
@@ -598,7 +697,7 @@
         }
 
         .card-desc {
-            font-size: 0.82rem;
+            font-size: 0.84rem;
             color: var(--text-muted);
             margin-bottom: 1.25rem;
             line-height: 1.5;
@@ -796,9 +895,13 @@
                 </div>
             </a>
             <div class="nav-actions">
-                <a href="#overview" class="nav-btn nav-btn-secondary">Flagship Overview</a>
-                <a href="#catalog" class="nav-btn nav-btn-secondary">All Projects (69)</a>
-                <a href="./resume/Shaikh_Abdul_Zubair_Resume.pdf" download class="nav-btn nav-btn-red">ATS Resume (PDF)</a>
+                <a href="#overview" class="nav-btn nav-btn-secondary">Overview</a>
+                <button class="nav-btn nav-btn-apk" onclick="selectSection('apk')">📱 Android APKs (15)</button>
+                <button class="nav-btn nav-btn-secondary" onclick="selectSection('ai')">🤖 AI Systems (14)</button>
+                <button class="nav-btn nav-btn-secondary" onclick="selectSection('game')">🎮 Games (15)</button>
+                <button class="nav-btn nav-btn-secondary" onclick="selectSection('website')">🌐 Websites (20)</button>
+                <button class="nav-btn nav-btn-secondary" onclick="selectSection('software')">💻 Softwares (22)</button>
+                <a href="./resume/Shaikh_Abdul_Zubair_Resume.pdf" download class="nav-btn nav-btn-red">📄 Resume (PDF)</a>
             </div>
         </div>
     </header>
@@ -813,6 +916,19 @@
             <p class="hero-bio">
                 Software & systems developer with 69+ production projects spanning BLE offline disaster networks, edge AI microservers, full-stack enterprise campus portals, real-time 3D physics engines, and IoT hardware telemetry.
             </p>
+
+            <!-- Dedicated 15 APK Download Callout Banner -->
+            <div class="hero-apk-callout">
+                <div class="hero-apk-info">
+                    <span class="hero-apk-icon">📱</span>
+                    <div class="hero-apk-text">
+                        <strong>15 Production Android Applications with Direct APK Downloads</strong>
+                        <span>WarForge RTS, Sahay NearMesh, Nexus MeshLink, Personal Life Vault, CycleCare, Z-Music, Interakt & more.</span>
+                    </div>
+                </div>
+                <button class="btn-apk-hero" onclick="selectSection('apk')">📱 Browse All 15 APKs</button>
+            </div>
+
             <div class="hero-actions">
                 <a href="#overview" class="btn-primary">⚡ Explore Flagship Systems</a>
                 <a href="./resume/Shaikh_Abdul_Zubair_Resume.pdf" download class="btn-secondary">📄 Download ATS Resume (PDF)</a>
@@ -827,16 +943,16 @@
                 <div class="stat-tag">Production Projects</div>
             </div>
             <div class="stat-box">
+                <div class="stat-num"><span class="green">15</span></div>
+                <div class="stat-tag">Direct Downloadable APKs</div>
+            </div>
+            <div class="stat-box">
                 <div class="stat-num">5<span>.0</span></div>
                 <div class="stat-tag">Core Engineering Domains</div>
             </div>
             <div class="stat-box">
                 <div class="stat-num">100<span>%</span></div>
                 <div class="stat-tag">Full Codebase Preserved</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-num">83.7<span>%</span></div>
-                <div class="stat-tag">Internship Efficiency Track</div>
             </div>
         </div>
 
@@ -855,34 +971,34 @@
 
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">System</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">📱 ANDROID & APK</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">Interakt — Real-Time Peer Collaboration Platform</h3>
                     <p class="spotlight-desc">Interactive real-time collaboration engine featuring dynamic team channels, rich-text state synchronization, responsive workspace dashboards, and low-latency interaction protocols.</p>
                     <div class="spotlight-actions">
-                        <button class="btn-action-primary" onclick="openSim('interact-app')">⚡ Live Architecture Demo</button>
-                        
+                        <button class="btn-action-primary" onclick="openSim('interact-app')">⚡ Live Architecture</button>
+                        <a href="apks/Interakt.apk" download class="btn-action-apk">📥 Download APK (11.9 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/interact-app" target="_blank" class="btn-action-code">📂 GitHub Code</a>
                     </div>
                 </div>
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">System</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">📱 ANDROID & APK</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">Nexus (MeshLink) — Offline Mesh & Edge AI Server</h3>
                     <p class="spotlight-desc">Zero-infrastructure offline communication & inference engine hosting a local HTTP microserver and edge intelligence on Android devices with BLE/Wi-Fi Direct mesh.</p>
                     <div class="spotlight-actions">
-                        <button class="btn-action-primary" onclick="openSim('nexus-meshlink-offline')">⚡ Live Architecture Demo</button>
-                        
+                        <button class="btn-action-primary" onclick="openSim('nexus-meshlink-offline')">⚡ Live Architecture</button>
+                        <a href="apks/Nexus-MeshLink.apk" download class="btn-action-apk">📥 Download APK (5.9 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nexus-meshlink-offline" target="_blank" class="btn-action-code">📂 GitHub Code</a>
                     </div>
                 </div>
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">🤖 Autonomous AI & Media</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">🤖 AUTONOMOUS AI</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">AI Hardware Assistant — Arduino & IoT Voice Hub</h3>
                     <p class="spotlight-desc">Hybrid on-device edge AI and microcontroller telemetry engine bridging Arduino Uno I2C/SPI sensors with real-time speech processing and physical actuator automation.</p>
@@ -894,21 +1010,21 @@
                 </div>
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">System</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">📱 ANDROID & APK</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">NearMeshChat (Sahay) — Offline Disaster Network</h3>
                     <p class="spotlight-desc">Disaster-resilient offline Android mesh network utilizing Bluetooth Low Energy radar scanning, decentralized store-and-forward routing, and on-device emergency triage.</p>
                     <div class="spotlight-actions">
-                        <button class="btn-action-primary" onclick="openSim('nearmeshchat-sahay-android')">⚡ Live Architecture Demo</button>
-                        
+                        <button class="btn-action-primary" onclick="openSim('nearmeshchat-sahay-android')">⚡ Live Architecture</button>
+                        <a href="apks/Sahay-NearMesh.apk" download class="btn-action-apk">📥 Download APK (9.4 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nearmeshchat-sahay-android" target="_blank" class="btn-action-code">📂 GitHub Code</a>
                     </div>
                 </div>
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">🤖 Autonomous AI & Media</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">🤖 AUTONOMOUS AI</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">AI All Maker — Autonomous Video Creation Pipeline</h3>
                     <p class="spotlight-desc">Fully autonomous media synthesizer executing script prompt engineering, neural voice synthesis, dynamic visual generation, and automated FFmpeg video assembly.</p>
@@ -920,21 +1036,21 @@
                 </div>
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">🎮 Games & Physics</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">📱 ANDROID & APK</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">WarForge: Draw Your Army — Real-Time 3D RTS</h3>
                     <p class="spotlight-desc">High-performance 3D Unity RTS mobile game featuring custom vector gesture unit-spawning, A* crowd pathfinding, and physics-driven battle simulations. Playable APK available.</p>
                     <div class="spotlight-actions">
                         <button class="btn-action-primary" onclick="openSim('draw-your-army-warforge')">🕹️ Launch Game Demo</button>
-                        <a href="apks/WarForge.apk" download class="btn-action-apk">📥 Download APK</a>
+                        <a href="apks/WarForge.apk" download class="btn-action-apk">📥 Download APK (53.6 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/draw-your-army-warforge" target="_blank" class="btn-action-code">📂 GitHub Code</a>
                     </div>
                 </div>
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">🎮 Games & Physics</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">🎮 GAME ENGINE</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">Evergreen: After The Fall — Godot RPG Engine</h3>
                     <p class="spotlight-desc">Atmospheric post-apocalyptic narrative RPG engineered in Godot with procedural dungeon generation, custom event state machines, and dynamic dynamic lighting.</p>
@@ -946,52 +1062,52 @@
                 </div>
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">System</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">📱 ANDROID & APK</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">Personal Life Vault — Encrypted Android Security App</h3>
                     <p class="spotlight-desc">Hardware-backed military-grade AES-256 vault for personal records, emergency offline contacts, biometric authentication, and decoy PIN security. APK available.</p>
                     <div class="spotlight-actions">
-                        <button class="btn-action-primary" onclick="openSim('personal-life-vault')">⚡ Live Architecture Demo</button>
-                        <a href="apks/PersonalLifeVault.apk" download class="btn-action-apk">📥 Download APK</a>
+                        <button class="btn-action-primary" onclick="openSim('personal-life-vault')">⚡ Live Architecture</button>
+                        <a href="apks/PersonalLifeVault.apk" download class="btn-action-apk">📥 Download APK (19.0 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/personal-life-vault" target="_blank" class="btn-action-code">📂 GitHub Code</a>
                     </div>
                 </div>
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">System</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">📱 ANDROID & APK</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">CycleCare — Health Intelligence & Wellness Platform</h3>
                     <p class="spotlight-desc">Comprehensive health tracking ecosystem featuring cycle prediction algorithms, symptom correlation metrics, secure cloud sync, and empathetic wellness guidance.</p>
                     <div class="spotlight-actions">
-                        <button class="btn-action-primary" onclick="openSim('cyclecare-health-platform')">⚡ Live Architecture Demo</button>
-                        
+                        <button class="btn-action-primary" onclick="openSim('cyclecare-health-platform')">⚡ Live Architecture</button>
+                        <a href="apks/CycleCare.apk" download class="btn-action-apk">📥 Download APK (11.2 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/cyclecare-health-platform" target="_blank" class="btn-action-code">📂 GitHub Code</a>
                     </div>
                 </div>
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">System</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">🌐 WEB PLATFORM</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">SRK Campus Connect — Enterprise College Platform</h3>
                     <p class="spotlight-desc">Enterprise academic operations system uniting students, faculty, and administration across 3 cross-platform Flutter applications with Node.js/TypeScript backend.</p>
                     <div class="spotlight-actions">
-                        <button class="btn-action-primary" onclick="openSim('srk-campus-connect')">⚡ Live Architecture Demo</button>
+                        <button class="btn-action-primary" onclick="openSim('srk-campus-connect')">⚡ Live Architecture</button>
                         
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/srk-campus-connect" target="_blank" class="btn-action-code">📂 GitHub Code</a>
                     </div>
                 </div>
                 <div class="spotlight-card">
                     <div class="spotlight-top">
-                        <span class="spotlight-tag">System</span>
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">★ FLAGSHIP</span>
+                        <span class="spotlight-tag">🌐 WEB PLATFORM</span>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #ef4444; font-weight: 700; letter-spacing: 0.05em;">CORE SYSTEM</span>
                     </div>
                     <h3 class="spotlight-title">RentANY — Multi-Tier Peer-to-Peer Rental Marketplace</h3>
                     <p class="spotlight-desc">Scalable rental commerce platform built on Kotlin Jetpack and Node.js microservices with real-time catalog discovery, escrow workflows, and booking lifecycles.</p>
                     <div class="spotlight-actions">
-                        <button class="btn-action-primary" onclick="openSim('rentany-rental-platform')">⚡ Live Architecture Demo</button>
+                        <button class="btn-action-primary" onclick="openSim('rentany-rental-platform')">⚡ Live Architecture</button>
                         
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/rentany-rental-platform" target="_blank" class="btn-action-code">📂 GitHub Code</a>
                     </div>
@@ -999,37 +1115,37 @@
             </div>
         </section>
 
-        <!-- FULL REPOSITORY CATALOG FILTER SECTION -->
+        <!-- FULL REPOSITORY CATALOG: 5 SECTIONS -->
         <section id="catalog" class="filter-section">
             <div class="section-header">
-                <div class="section-kicker">COMPLETE REPOSITORY INDEX</div>
-                <h2 class="section-title">All Engineering Projects (69)</h2>
-                <p class="section-subtitle">
-                    Full catalog across 5 specialized domains. Filter by domain or search by technology stack, keywords, or title.
+                <div class="section-kicker">INTERACTIVE REPOSITORY CATALOG</div>
+                <h2 class="section-title" id="catalogHeading">All Systems (69 Projects)</h2>
+                <p class="section-subtitle" id="catalogSubheading">
+                    Explore projects across 5 specialized domains: Android Apps & APKs, AI Systems, Games, Websites, and Softwares.
                 </p>
             </div>
 
             <div class="filter-controls">
                 <div class="filter-pills" id="filterPills">
-                    <button class="filter-pill active" data-cat="all">All Systems (69)</button>
-                    <button class="filter-pill" data-cat="campus">Campus & Enterprise (10)</button>
-                    <button class="filter-pill" data-cat="offline_android">Android & Offline Mesh (12)</button>
-                    <button class="filter-pill" data-cat="ai">Autonomous AI & Media (16)</button>
-                    <button class="filter-pill" data-cat="games">Games & Physics (14)</button>
-                    <button class="filter-pill" data-cat="embedded_systems">Embedded & Core Systems (17)</button>
+                    <button class="filter-pill active" data-sec="all">⚡ All Systems (69)</button>
+                    <button class="filter-pill" data-sec="apk">📱 Android Apps & APKs (15)</button>
+                    <button class="filter-pill" data-sec="ai">🤖 AI & Autonomous (14)</button>
+                    <button class="filter-pill" data-sec="game">🎮 Games & Physics (15)</button>
+                    <button class="filter-pill" data-sec="website">🌐 Websites & Web Apps (20)</button>
+                    <button class="filter-pill" data-sec="software">💻 Softwares & Utilities (22)</button>
                 </div>
                 <div class="search-input-wrapper">
                     <span class="search-icon">🔍</span>
-                    <input type="text" id="projectSearch" class="search-input" placeholder="Search 69 projects, tools, stacks...">
+                    <input type="text" id="projectSearch" class="search-input" placeholder="Search projects, stacks, keywords...">
                 </div>
             </div>
 
             <div class="catalog-grid" id="catalogGrid">
 
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#abdul-server</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">AbdulServer</h3>
                     <p class="card-desc">Backend server infrastructure handling custom routing and session dispatching.</p>
@@ -1039,10 +1155,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/abdul-server" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#asset-manager-platform</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">Full-Stack Asset Manager Platform</h3>
                     <p class="card-desc">Modern IT and organizational asset management dashboard built with React, TypeScript, Tailwind CSS, and Drizzle ORM.</p>
@@ -1052,23 +1168,23 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/asset-manager-platform" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="ai" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#college-face-recognition-attendance</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">College Face Recognition Automated Attendance</h3>
                     <p class="card-desc">Complete biometric facial recognition system integrating deep computer vision with frontend management portal and backend verification API.</p>
                     <div class="card-actions">
-                        <button class="btn-action-primary" onclick="openSim('college-face-recognition-attendance')">⚡ Architecture</button>
+                        <button class="btn-action-primary" onclick="openSim('college-face-recognition-attendance')">🤖 AI Console</button>
                         
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/college-face-recognition-attendance" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#college-hub</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">collage-hub</h3>
                     <p class="card-desc">college dreammmmm</p>
@@ -1078,23 +1194,23 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/college-hub" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="apk,website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#cyclecare-health-platform</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 11.2 MB</span>
                     </div>
                     <h3 class="card-title">CycleCare — Health Intelligence & Wellness Platform</h3>
                     <p class="card-desc">Comprehensive health tracking ecosystem featuring cycle prediction algorithms, symptom correlation metrics, secure cloud sync, and empathetic wellness guidance.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('cyclecare-health-platform')">⚡ Architecture</button>
-                        
+                        <a href="apks/CycleCare.apk" download class="btn-action-apk">📥 Download APK (11.2 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/cyclecare-health-platform" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#enterprise-billing-backend</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">Enterprise Billing Backend</h3>
                     <p class="card-desc">Production engineering project developed in 🏢 Campus & Enterprise.</p>
@@ -1104,10 +1220,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/enterprise-billing-backend" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#follow-or-not-app</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">Preview production build locally</h3>
                     <p class="card-desc">> **"Know Who Follows You. Track Every Change."**</p>
@@ -1117,10 +1233,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/follow-or-not-app" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website,software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#gst-billing-system</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">GST Billing & Invoicing Enterprise System</h3>
                     <p class="card-desc">Enterprise GST calculation, invoicing, and inventory system powered by Node.js, Express, and SQL database schemas with automated invoice generation.</p>
@@ -1130,36 +1246,36 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/gst-billing-system" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="apk,website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#interact-app</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 11.9 MB</span>
                     </div>
                     <h3 class="card-title">Interakt — Real-Time Peer Collaboration Platform</h3>
                     <p class="card-desc">Interactive real-time collaboration engine featuring dynamic team channels, rich-text state synchronization, responsive workspace dashboards, and low-latency interaction protocols.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('interact-app')">⚡ Architecture</button>
-                        
+                        <a href="apks/Interakt.apk" download class="btn-action-apk">📥 Download APK (11.9 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/interact-app" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="apk,website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#masipay-canteen</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 4.2 MB</span>
                     </div>
-                    <h3 class="card-title">Terminal 2: Frontend Web App</h3>
-                    <p class="card-desc">> **Tagline:** *"Order karo, Masi tak turant pahunchao."*</p>
+                    <h3 class="card-title">SRK Campus Staff & MasiPay — Campus Operations App</h3>
+                    <p class="card-desc">Staff attendance, task tracking, and campus cafeteria order processing with real-time biometric and QR verification.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('masipay-canteen')">⚡ Architecture</button>
-                        
+                        <a href="apks/SRKStaff.apk" download class="btn-action-apk">📥 Download APK (4.2 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/masipay-canteen" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#mvc-backend-architecture</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">Modular MVC Backend</h3>
                     <p class="card-desc">Enterprise REST API architecture featuring isolated controllers, authentication middleware, and validated schemas.</p>
@@ -1169,36 +1285,36 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/mvc-backend-architecture" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="apk,website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#projectflow-intelligence</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 10.6 MB</span>
                     </div>
-                    <h3 class="card-title">Install directly to attached device via ADB</h3>
-                    <p class="card-desc">[![System Status](https://img.shields.io/badge/System_Status-ONLINE-success.svg)](https://projectflow-intelligence.onrender.com)</p>
+                    <h3 class="card-title">ProjectFlow Intelligence — Mobile Task & Project Suite</h3>
+                    <p class="card-desc">Agile project tracker with Gantt visualizer, milestone alarms, sprint boards, and local SQLite state sync.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('projectflow-intelligence')">⚡ Architecture</button>
-                        
+                        <a href="apks/ProjectFlow.apk" download class="btn-action-apk">📥 Download APK (10.6 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/projectflow-intelligence" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="apk,website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#smart-expenses-tracker</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 10.2 MB</span>
                     </div>
-                    <h3 class="card-title">Smart Expenses Tracker</h3>
-                    <p class="card-desc">> Simple • Secure • Offline First</p>
+                    <h3 class="card-title">SmartExpenses — Automated Finance & Budget Tracker</h3>
+                    <p class="card-desc">Smart expense manager with category breakdown, multi-wallet ledger, receipt analytics, and offline-first database.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('smart-expenses-tracker')">⚡ Architecture</button>
-                        
+                        <a href="apks/SmartExpenses.apk" download class="btn-action-apk">📥 Download APK (10.2 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/smart-expenses-tracker" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#social-media-platform</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">Full-Stack Social Network</h3>
                     <p class="card-desc">Complete social media platform with user feeds, image uploads, post interactions, and real-time chat.</p>
@@ -1208,10 +1324,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/social-media-platform" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#srk-campus-connect</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">SRK Campus Connect — Enterprise College Platform</h3>
                     <p class="card-desc">Enterprise academic operations system uniting students, faculty, and administration across 3 cross-platform Flutter applications with Node.js/TypeScript backend.</p>
@@ -1221,10 +1337,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/srk-campus-connect" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#test-microservice</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">TEST Microservice</h3>
                     <p class="card-desc">Experimental API testing server for token validations and endpoint routing.</p>
@@ -1234,10 +1350,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/test-microservice" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="enterprise" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#wss-bhuj-institutional-portal</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">WSS Bhuj Institutional Web Portal</h3>
                     <p class="card-desc">Institutional web platform with responsive styling, public portal pages, and localized asset structures.</p>
@@ -1247,10 +1363,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/wss-bhuj-institutional-portal" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#aapdasetu-disaster-response</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">AapdaSetu Disaster Command & Mesh</h3>
                     <p class="card-desc">Cellular-independent disaster rescue operations command console with real-time GIS incident mapping.</p>
@@ -1260,10 +1376,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/aapdasetu-disaster-response" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#android-native-prototypes</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">Native Android Prototypes</h3>
                     <p class="card-desc">Prototypes testing custom CameraX capture pipelines, sensor fusion, and Room DB migrations.</p>
@@ -1273,62 +1389,62 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/android-native-prototypes" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="apk" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#couple-canvas</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 62.5 MB</span>
                     </div>
-                    <h3 class="card-title">💕 Couple Canvas</h3>
-                    <p class="card-desc">> **"Two people. One canvas. Draw together."**</p>
+                    <h3 class="card-title">CoupleCanvas — Real-Time Collaborative Whiteboard</h3>
+                    <p class="card-desc">Ultra-low latency dual-device drawing canvas with WebRTC/WebSocket stroke synchronization and pressure dynamics.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('couple-canvas')">🎨 Draw Canvas</button>
-                        
+                        <a href="apks/CoupleCanvas.apk" download class="btn-action-apk">📥 Download APK (62.5 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/couple-canvas" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="apk,software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#emergency-recorder-fast-rec</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 15.0 MB</span>
                     </div>
-                    <h3 class="card-title">Emergency Recorder (Fast Rec) 🎙️🚨</h3>
-                    <p class="card-desc">A native, high-performance Android emergency audio recording application built in **Kotlin** and **Jetpack Compose (Material 3)**.</p>
+                    <h3 class="card-title">FastRec — Instant Background Emergency Audio Recorder</h3>
+                    <p class="card-desc">One-touch hardware key trigger for stealth background audio recording, encrypted storage, and auto-dispatch alerts.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('emergency-recorder-fast-rec')">⚡ Architecture</button>
-                        
+                        <a href="apks/FastRec.apk" download class="btn-action-apk">📥 Download APK (15.0 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/emergency-recorder-fast-rec" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="apk" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#focus-guard-addiction-blocker</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 40.0 MB</span>
                     </div>
-                    <h3 class="card-title">Build Release APK</h3>
-                    <p class="card-desc">---</p>
+                    <h3 class="card-title">FocusGuard — Digital Wellbeing & Focus Controller</h3>
+                    <p class="card-desc">Accessibility-service driven habit tracker and distraction blocker with strict schedule lockouts and PIN protection.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('focus-guard-addiction-blocker')">⚡ Architecture</button>
-                        
+                        <a href="apks/FocusGuard.apk" download class="btn-action-apk">📥 Download APK (40.0 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/focus-guard-addiction-blocker" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="apk,software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#myhelper-storage-analyzer</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 6.9 MB</span>
                     </div>
-                    <h3 class="card-title">myhelper Analyzer</h3>
-                    <p class="card-desc">Storage and system health tool identifying redundant caches, battery drainers, and duplicate files.</p>
+                    <h3 class="card-title">MyHelper — Android Device Storage & Telemetry Analyzer</h3>
+                    <p class="card-desc">On-device disk analyzer, storage cleaner, battery monitor, and remote diagnostics tool with local HTTP tunneling.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('myhelper-storage-analyzer')">⚡ Architecture</button>
-                        
+                        <a href="apks/MyHelper.apk" download class="btn-action-apk">📥 Download APK (6.9 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/myhelper-storage-analyzer" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#neardrop-wireless-drop</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">NearDrop</h3>
                     <p class="card-desc">Fast local device-to-device wireless file transfer utility.</p>
@@ -1338,75 +1454,75 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/neardrop-wireless-drop" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="apk" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#nearmeshchat-sahay-android</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 9.4 MB</span>
                     </div>
                     <h3 class="card-title">NearMeshChat (Sahay) — Offline Disaster Network</h3>
                     <p class="card-desc">Disaster-resilient offline Android mesh network utilizing Bluetooth Low Energy radar scanning, decentralized store-and-forward routing, and on-device emergency triage.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('nearmeshchat-sahay-android')">⚡ Architecture</button>
-                        
+                        <a href="apks/Sahay-NearMesh.apk" download class="btn-action-apk">📥 Download APK (9.4 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nearmeshchat-sahay-android" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="apk" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#nexus-meshlink-offline</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 5.9 MB</span>
                     </div>
                     <h3 class="card-title">Nexus (MeshLink) — Offline Mesh & Edge AI Server</h3>
                     <p class="card-desc">Zero-infrastructure offline communication & inference engine hosting a local HTTP microserver and edge intelligence on Android devices with BLE/Wi-Fi Direct mesh.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('nexus-meshlink-offline')">⚡ Architecture</button>
-                        
+                        <a href="apks/Nexus-MeshLink.apk" download class="btn-action-apk">📥 Download APK (5.9 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nexus-meshlink-offline" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="apk,software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#personal-life-vault</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 19.0 MB</span>
                     </div>
                     <h3 class="card-title">Personal Life Vault — Encrypted Android Security App</h3>
                     <p class="card-desc">Hardware-backed military-grade AES-256 vault for personal records, emergency offline contacts, biometric authentication, and decoy PIN security. APK available.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('personal-life-vault')">⚡ Architecture</button>
-                        <a href="apks/PersonalLifeVault.apk" download class="btn-action-apk">📥 APK</a>
+                        <a href="apks/PersonalLifeVault.apk" download class="btn-action-apk">📥 Download APK (19.0 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/personal-life-vault" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="ai" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#pocketai-server</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">PocketAI Server</h3>
                     <p class="card-desc">Companion offline AI assistant server delivering local inference over Wi-Fi.</p>
                     <div class="card-actions">
-                        <button class="btn-action-primary" onclick="openSim('pocketai-server')">⚡ Architecture</button>
+                        <button class="btn-action-primary" onclick="openSim('pocketai-server')">🤖 AI Console</button>
                         
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/pocketai-server" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="apk,software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#recoverx-data-recovery</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 20.3 MB</span>
                     </div>
-                    <h3 class="card-title">Assemble Release APK</h3>
-                    <p class="card-desc">RecoverX is a native Android application engineered to discover accessible device storage, preview photos and videos, detect extension and MIME mismatches, search for cached thumbnails and alternate copies, and safely restore accessible files without ever fabricating scan results or making false promises.</p>
+                    <h3 class="card-title">RecoverX — Fast Media & File Recovery Utility</h3>
+                    <p class="card-desc">Deep storage sector scanner recovering deleted photos, media files, and document caches from internal flash storage.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('recoverx-data-recovery')">⚡ Architecture</button>
-                        
+                        <a href="apks/RecoverX.apk" download class="btn-action-apk">📥 Download APK (20.3 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/recoverx-data-recovery" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="website" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#rentany-rental-platform</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">RentANY — Multi-Tier Peer-to-Peer Rental Marketplace</h3>
                     <p class="card-desc">Scalable rental commerce platform built on Kotlin Jetpack and Node.js microservices with real-time catalog discovery, escrow workflows, and booking lifecycles.</p>
@@ -1416,23 +1532,23 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/rentany-rental-platform" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="android" data-tags="">
+                <div class="project-card" data-sections="apk" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#z-music-player</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 14.3 MB</span>
                     </div>
-                    <h3 class="card-title">Z-Music Player</h3>
-                    <p class="card-desc">High-fidelity music streaming and offline audio player with foreground background service.</p>
+                    <h3 class="card-title">Z-Music — High-Fidelity Android Audio Player</h3>
+                    <p class="card-desc">Sleek local audio player engine with equalizer controls, background service playback, and playlist synchronization.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('z-music-player')">⚡ Architecture</button>
-                        
+                        <a href="apks/Z-Music.apk" download class="btn-action-apk">📥 Download APK (14.3 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/z-music-player" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#ai-creator-video-automation</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">AI All Maker — Autonomous Video Creation Pipeline</h3>
                     <p class="card-desc">Fully autonomous media synthesizer executing script prompt engineering, neural voice synthesis, dynamic visual generation, and automated FFmpeg video assembly.</p>
@@ -1442,10 +1558,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-creator-video-automation" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai,software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#ai-hardware-assistant-arduino</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">AI Hardware Assistant — Arduino & IoT Voice Hub</h3>
                     <p class="card-desc">Hybrid on-device edge AI and microcontroller telemetry engine bridging Arduino Uno I2C/SPI sensors with real-time speech processing and physical actuator automation.</p>
@@ -1455,10 +1571,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-hardware-assistant-arduino" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#ai-video-repurposing-studio</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">AI Content Repurposing Studio</h3>
                     <p class="card-desc">A desktop video repurposing application that converts long-form video (local files or validated sources) into high-retention 9:16 Shorts with zero paid AI APIs. It combines browser-automated AI providers (Gemini, ChatGPT, DeepSeek) with an FFmpeg video processing pipeline, OpenCV face-tracking smart reframing, animated karaoke captions, strict 15-point quality assurance, and human review before export.</p>
@@ -1468,10 +1584,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-video-repurposing-studio" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#ai-zubair-llm-research</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">AI Zubair LLM Research</h3>
                     <p class="card-desc">Comprehensive LLM training audits, hyperparameter benchmarks, and automated dataset inventory scripts.</p>
@@ -1481,10 +1597,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-zubair-llm-research" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai,software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#aura-autonomous-ai-system</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">AURA — Autonomous Local AI Research & Learning System</h3>
                     <p class="card-desc">AURA is a fully local, autonomous AI research and learning system designed for model independence, hardware efficiency (optimized for NVIDIA RTX 2050 4GB VRAM), and continuous self-driven cognitive execution.</p>
@@ -1494,10 +1610,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/aura-autonomous-ai-system" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#auto-yt-generator</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">Or generate via CLI</h3>
                     <p class="card-desc">An automated 2D video production engine designed to create full 1080p animated YouTube videos from a single prompt or topic.</p>
@@ -1507,10 +1623,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/auto-yt-generator" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#autonomous-web-agent-ide</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">Frontend build verification</h3>
                     <p class="card-desc">> A production-grade local desktop/web application that transforms natural-language project requirements into full-stack, tested, and running code using web-based LLMs via persistent Playwright automation, strict sandboxing, policy validation, and real-time streaming.</p>
@@ -1520,10 +1636,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/autonomous-web-agent-ide" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#my-custom-ai-pytorch</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">My Custom AI (PyTorch)</h3>
                     <p class="card-desc">Custom neural language model trained from scratch with custom tokenization and multi-head attention.</p>
@@ -1533,10 +1649,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/my-custom-ai-pytorch" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai,software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#my-helper-agent</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">My Helper Autonomous Agent</h3>
                     <p class="card-desc">Modular cognitive assistant with brain routing, episodic memory, and headless web research tools.</p>
@@ -1546,10 +1662,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/my-helper-agent" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#omnidev-ai-synthesizer</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">OmniDev AI System</h3>
                     <p class="card-desc">Autonomous game and app synthesizer with persistent memory capable of autonomously building Godot games.</p>
@@ -1559,10 +1675,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/omnidev-ai-synthesizer" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="ai" data-tags="">
+                <div class="project-card" data-sections="ai" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🤖 Autonomous AI & Media</span>
-                        <span class="card-id">#stickforge-ai-animation</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">StickForge AI 🎬🤖</h3>
                     <p class="card-desc">StickForge AI is a desktop application for Windows that transforms ideas and scripts into complete animated stickman videos ready for YouTube Shorts, Instagram Reels, and standard video formats.</p>
@@ -1572,10 +1688,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/stickforge-ai-animation" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#360-journey-panorama</span>
+                        
                     </div>
                     <h3 class="card-title">360 Journey Panorama</h3>
                     <p class="card-desc">Production engineering project developed in 🎮 Games & Game Engines.</p>
@@ -1585,10 +1701,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/360-journey-panorama" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#action-rpg-engine</span>
+                        
                     </div>
                     <h3 class="card-title">Action Rpg Engine</h3>
                     <p class="card-desc">Production engineering project developed in 🎮 Games & Game Engines.</p>
@@ -1598,10 +1714,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/action-rpg-engine" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#arcade-space-dodger</span>
+                        
                     </div>
                     <h3 class="card-title">2D Arcade Space Dodger</h3>
                     <p class="card-desc">Fast-paced 2D arcade game featuring procedural asteroid hazard generation and responsive controls.</p>
@@ -1611,23 +1727,23 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/arcade-space-dodger" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="apk,game" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#draw-your-army-warforge</span>
+                        <span class="card-cat">📱 Android / APK</span>
+                        <span class="badge-apk">APK • 53.6 MB</span>
                     </div>
                     <h3 class="card-title">WarForge: Draw Your Army — Real-Time 3D RTS</h3>
                     <p class="card-desc">High-performance 3D Unity RTS mobile game featuring custom vector gesture unit-spawning, A* crowd pathfinding, and physics-driven battle simulations. Playable APK available.</p>
                     <div class="card-actions">
                         <button class="btn-action-primary" onclick="openSim('draw-your-army-warforge')">🕹️ Game Demo</button>
-                        <a href="apks/WarForge.apk" download class="btn-action-apk">📥 APK</a>
+                        <a href="apks/WarForge.apk" download class="btn-action-apk">📥 Download APK (53.6 MB)</a>
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/draw-your-army-warforge" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#evergreen-after-the-fall-godot-rpg</span>
+                        
                     </div>
                     <h3 class="card-title">Evergreen: After The Fall — Godot RPG Engine</h3>
                     <p class="card-desc">Atmospheric post-apocalyptic narrative RPG engineered in Godot with procedural dungeon generation, custom event state machines, and dynamic dynamic lighting.</p>
@@ -1637,10 +1753,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/evergreen-after-the-fall-godot-rpg" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#flappy-bird-mechanics</span>
+                        
                     </div>
                     <h3 class="card-title">Flappy Bird Mechanics Game</h3>
                     <p class="card-desc">Physics-based arcade game implementing custom gravity curves, pipe gap procedural generation, and score tracking.</p>
@@ -1650,10 +1766,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/flappy-bird-mechanics" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#full-stack-rpg-game</span>
+                        
                     </div>
                     <h3 class="card-title">Full-Stack RPG Game</h3>
                     <p class="card-desc">Complete action RPG featuring character stats, combat state machines, enemy AI, and dungeon transitions.</p>
@@ -1663,23 +1779,23 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/full-stack-rpg-game" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="ai,game" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#isekai-world-adventure</span>
+                        <span class="card-cat">🤖 Autonomous AI</span>
+                        
                     </div>
                     <h3 class="card-title">Isekai World Adventure</h3>
                     <p class="card-desc">Story-driven fantasy adventure game with interactive NPC dialog trees, quest progression, and world exploration.</p>
                     <div class="card-actions">
-                        <button class="btn-action-primary" onclick="openSim('isekai-world-adventure')">🕹️ Game Demo</button>
+                        <button class="btn-action-primary" onclick="openSim('isekai-world-adventure')">🤖 AI Console</button>
                         
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/isekai-world-adventure" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#minecraft-3d-voxel-engine</span>
+                        
                     </div>
                     <h3 class="card-title">Minecraft 3D Voxel Engine</h3>
                     <p class="card-desc">3D voxel sandbox featuring procedural block placement, terrain generation, and destruction physics.</p>
@@ -1689,10 +1805,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/minecraft-3d-voxel-engine" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#pixel-art-assets</span>
+                        
                     </div>
                     <h3 class="card-title">Pixel Art Assets</h3>
                     <p class="card-desc">Production engineering project developed in 🎮 Games & Game Engines.</p>
@@ -1702,10 +1818,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/pixel-art-assets" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#retro-snake-engine</span>
+                        
                     </div>
                     <h3 class="card-title">Retro Snake Engine</h3>
                     <p class="card-desc">Grid-based classic snake game implementing dynamic body segment interpolation and food spawning.</p>
@@ -1715,10 +1831,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/retro-snake-engine" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#shadow-kingdom-2d-rpg</span>
+                        
                     </div>
                     <h3 class="card-title">Shadow Kingdom 2D Rpg</h3>
                     <p class="card-desc">Production engineering project developed in 🎮 Games & Game Engines.</p>
@@ -1728,10 +1844,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/shadow-kingdom-2d-rpg" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#slikj-water-physics</span>
+                        
                     </div>
                     <h3 class="card-title">Slikj Water Physics</h3>
                     <p class="card-desc">Interactive 3D water physics simulation with realistic wave displacement, buoyancy calculations, and reflection shaders.</p>
@@ -1741,10 +1857,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/slikj-water-physics" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#unity-fps-microgame</span>
+                        
                     </div>
                     <h3 class="card-title">Unity 3D FPS Game</h3>
                     <p class="card-desc">First Person Shooter with NavMesh AI pathfinding, raycast shooting mechanics, particle impacts, and HUD overlay.</p>
@@ -1754,10 +1870,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/unity-fps-microgame" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="games" data-tags="">
+                <div class="project-card" data-sections="game" data-tags="">
                     <div class="card-meta">
                         <span class="card-cat">🎮 Games & Physics</span>
-                        <span class="card-id">#yorus-3d-world</span>
+                        
                     </div>
                     <h3 class="card-title">Yorus 3D World</h3>
                     <p class="card-desc">3D environment exploration featuring atmospheric lighting, custom collision detection, and camera controls.</p>
@@ -1767,10 +1883,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/yorus-3d-world" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#arduino-iot-wire</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">Arduino IoT Wire Communication</h3>
                     <p class="card-desc">Embedded microcontroller programming using Wire library for I2C communication.</p>
@@ -1780,10 +1896,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/arduino-iot-wire" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#autohotkey-automation</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">AutoHotkey Automation Suite</h3>
                     <p class="card-desc">Windows desktop automation scripts for keyboard macros and slide transitions.</p>
@@ -1793,10 +1909,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/autohotkey-automation" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#calculator-utility</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">Calculator Utility</h3>
                     <p class="card-desc">Responsive arithmetic calculation engine.</p>
@@ -1806,10 +1922,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/calculator-utility" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="website,software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#college-portal-website</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">College Website Portal</h3>
                     <p class="card-desc">Institutional web portal showcasing courses and student resources.</p>
@@ -1819,10 +1935,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/college-portal-website" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#java-core-oop-assignments</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">Java Core OOP, Abstraction & Custom Exception Suite</h3>
                     <p class="card-desc">Academic Java engineering suite covering abstract classes, inner member hierarchies, multi-level try-catch, and custom exception handling paradigms.</p>
@@ -1832,10 +1948,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/java-core-oop-assignments" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#mongodb-advanced-queries</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">MongoDB Advanced Queries</h3>
                     <p class="card-desc">Advanced database optimization routines and NoSQL schema validations.</p>
@@ -1845,10 +1961,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/mongodb-advanced-queries" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="website,software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#school-management-portal</span>
+                        <span class="card-cat">🌐 Web Platform</span>
+                        
                     </div>
                     <h3 class="card-title">School Management Portal</h3>
                     <p class="card-desc">Educational administration portal handling student enrollments and fee status.</p>
@@ -1858,10 +1974,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/school-management-portal" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#stopwatch-and-precision-timer</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">Stopwatch & Precision Timer</h3>
                     <p class="card-desc">Millisecond-precision timer with lap splitting and state persistence.</p>
@@ -1871,10 +1987,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/stopwatch-and-precision-timer" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#systems-and-algorithms-cpp</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">Systems & Algorithms Repositories</h3>
                     <p class="card-desc">Core algorithmic data structures and console pipeline utilities.</p>
@@ -1884,10 +2000,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/systems-and-algorithms-cpp" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#turboc-cpp-academic-projects</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">Turbo C++ Academic Algorithms & Systems</h3>
                     <p class="card-desc">Classic C/C++ implementations of foundational data structures, memory pointer manipulations, and low-level console algorithms.</p>
@@ -1897,10 +2013,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/turboc-cpp-academic-projects" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#visual-studio-cpp-core</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">Visual Studio C++ Low-Level Systems Core</h3>
                     <p class="card-desc">Visual Studio C++ core solution demonstrating memory safety, native pointers, and low-level system utilities.</p>
@@ -1910,10 +2026,10 @@
                         <a href="https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/visual-studio-cpp-core" target="_blank" class="btn-action-code">📂 Code</a>
                     </div>
                 </div>
-                <div class="project-card" data-category="systems" data-tags="">
+                <div class="project-card" data-sections="software" data-tags="">
                     <div class="card-meta">
-                        <span class="card-cat">System</span>
-                        <span class="card-id">#visual-studio-node-console</span>
+                        <span class="card-cat">💻 Software & Utility</span>
+                        
                     </div>
                     <h3 class="card-title">Visual Studio Node.js CLI & Console Service</h3>
                     <p class="card-desc">Visual Studio solution integrating Node.js CLI tooling for local process automation and command-line services.</p>
@@ -1967,44 +2083,96 @@
     <!-- Scripts -->
     <script src="js/simulators.js"></script>
     <script>
-        const allProjects = [{"id": "abdul-server", "title": "AbdulServer", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Backend server infrastructure handling custom routing and session dispatching.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/abdul-server", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "asset-manager-platform", "title": "Full-Stack Asset Manager Platform", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Modern IT and organizational asset management dashboard built with React, TypeScript, Tailwind CSS, and Drizzle ORM.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/asset-manager-platform", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "college-face-recognition-attendance", "title": "College Face Recognition Automated Attendance", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Complete biometric facial recognition system integrating deep computer vision with frontend management portal and backend verification API.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/college-face-recognition-attendance", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "college-hub", "title": "collage-hub", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "college dreammmmm", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/college-hub", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "cyclecare-health-platform", "title": "CYCLECARE \u2014 MASTER PRODUCTION APP & BACKEND", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "> **Tagline:** Track \u2022 Understand \u2022 Prepare \u2022 Care", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/cyclecare-health-platform", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "enterprise-billing-backend", "title": "Enterprise Billing Backend", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Production engineering project developed in \ud83c\udfe2 Campus & Enterprise.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/enterprise-billing-backend", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "follow-or-not-app", "title": "Preview production build locally", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "> **\"Know Who Follows You. Track Every Change.\"**", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/follow-or-not-app", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "gst-billing-system", "title": "GST Billing & Invoicing Enterprise System", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Enterprise GST calculation, invoicing, and inventory system powered by Node.js, Express, and SQL database schemas with automated invoice generation.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/gst-billing-system", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "interact-app", "title": "Getting Started with Create React App", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/interact-app", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "masipay-canteen", "title": "Terminal 2: Frontend Web App", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "> **Tagline:** *\"Order karo, Masi tak turant pahunchao.\"*", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/masipay-canteen", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "mvc-backend-architecture", "title": "Modular MVC Backend", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Enterprise REST API architecture featuring isolated controllers, authentication middleware, and validated schemas.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/mvc-backend-architecture", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "projectflow-intelligence", "title": "Install directly to attached device via ADB", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "[![System Status](https://img.shields.io/badge/System_Status-ONLINE-success.svg)](https://projectflow-intelligence.onrender.com)", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/projectflow-intelligence", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "smart-expenses-tracker", "title": "Smart Expenses Tracker", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "> Simple \u2022 Secure \u2022 Offline First", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/smart-expenses-tracker", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "social-media-platform", "title": "Full-Stack Social Network", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Complete social media platform with user feeds, image uploads, post interactions, and real-time chat.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/social-media-platform", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "srk-campus-connect", "title": "Campus Presence, Attendance & Faculty Coordination System", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "A production-grade, offline-first college campus coordination platform uniting students, faculty, and administration across 3 Flutter applications and a unified Node.js/TypeScript backend.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/srk-campus-connect", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "test-microservice", "title": "TEST Microservice", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Experimental API testing server for token validations and endpoint routing.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/test-microservice", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "wss-bhuj-institutional-portal", "title": "WSS Bhuj Institutional Web Portal", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Institutional web platform with responsive styling, public portal pages, and localized asset structures.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/wss-bhuj-institutional-portal", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "aapdasetu-disaster-response", "title": "AapdaSetu Disaster Command & Mesh", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Cellular-independent disaster rescue operations command console with real-time GIS incident mapping.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/aapdasetu-disaster-response", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "android-native-prototypes", "title": "Native Android Prototypes", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Prototypes testing custom CameraX capture pipelines, sensor fusion, and Room DB migrations.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/android-native-prototypes", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "couple-canvas", "title": "\ud83d\udc95 Couple Canvas", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "> **\"Two people. One canvas. Draw together.\"**", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/couple-canvas", "demoType": "whiteboard", "playType": "", "apkUrl": ""}, {"id": "emergency-recorder-fast-rec", "title": "Emergency Recorder (Fast Rec) \ud83c\udf99\ufe0f\ud83d\udea8", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "A native, high-performance Android emergency audio recording application built in **Kotlin** and **Jetpack Compose (Material 3)**.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/emergency-recorder-fast-rec", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "focus-guard-addiction-blocker", "title": "Build Release APK", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "---", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/focus-guard-addiction-blocker", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "myhelper-storage-analyzer", "title": "myhelper Analyzer", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Storage and system health tool identifying redundant caches, battery drainers, and duplicate files.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/myhelper-storage-analyzer", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "neardrop-wireless-drop", "title": "NearDrop", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Fast local device-to-device wireless file transfer utility.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/neardrop-wireless-drop", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "nearmeshchat-sahay-android", "title": "NearMeshChat (Sahay)", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Offline Android client featuring BLE radar scanning, store-and-forward mesh routing, and on-device Llama edge AI triage.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nearmeshchat-sahay-android", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "nexus-meshlink-offline", "title": "Nexus (MeshLinkOffline)", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Edge AI computing engine hosting a local HTTP microserver and offline inference engine on Android.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nexus-meshlink-offline", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "personal-life-vault", "title": "Personal Life Vault", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Hardware-backed encrypted vault for sensitive documents with stealth triggers.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/personal-life-vault", "demoType": "vault_sim", "playType": "", "apkUrl": "apks/PersonalLifeVault.apk"}, {"id": "pocketai-server", "title": "PocketAI Server", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Companion offline AI assistant server delivering local inference over Wi-Fi.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/pocketai-server", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "recoverx-data-recovery", "title": "Assemble Release APK", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "RecoverX is a native Android application engineered to discover accessible device storage, preview photos and videos, detect extension and MIME mismatches, search for cached thumbnails and alternate copies, and safely restore accessible files without ever fabricating scan results or making false promises.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/recoverx-data-recovery", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "rentany-rental-platform", "title": "RentANY Multi-Platform Rental System", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Full-Stack Android Rental Marketplace built with Kotlin, Android Jetpack, and a Node.js backend. Features product rental listings, transaction tracking, and real-time order states.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/rentany-rental-platform", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "z-music-player", "title": "Z-Music Player", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "High-fidelity music streaming and offline audio player with foreground background service.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/z-music-player", "demoType": "android_sim", "playType": "", "apkUrl": ""}, {"id": "ai-creator-video-automation", "title": "AI Content & Video Creation Automation Pipeline", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Automated media synthesizer generating viral video content using clever script prompts, audio synthesis, and headless ffmpeg assembly.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-creator-video-automation", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "ai-hardware-assistant-arduino", "title": "AI Hardware Assistant with Arduino IoT", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Autonomous voice and reasoning assistant interfacing with local memory caches and Arduino microcontrollers for physical world automation.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-hardware-assistant-arduino", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "ai-video-repurposing-studio", "title": "AI Content Repurposing Studio", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "A desktop video repurposing application that converts long-form video (local files or validated sources) into high-retention 9:16 Shorts with zero paid AI APIs. It combines browser-automated AI providers (Gemini, ChatGPT, DeepSeek) with an FFmpeg video processing pipeline, OpenCV face-tracking smart reframing, animated karaoke captions, strict 15-point quality assurance, and human review before export.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-video-repurposing-studio", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "ai-zubair-llm-research", "title": "AI Zubair LLM Research", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Comprehensive LLM training audits, hyperparameter benchmarks, and automated dataset inventory scripts.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-zubair-llm-research", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "aura-autonomous-ai-system", "title": "AURA \u2014 Autonomous Local AI Research & Learning System", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "AURA is a fully local, autonomous AI research and learning system designed for model independence, hardware efficiency (optimized for NVIDIA RTX 2050 4GB VRAM), and continuous self-driven cognitive execution.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/aura-autonomous-ai-system", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "auto-yt-generator", "title": "Or generate via CLI", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "An automated 2D video production engine designed to create full 1080p animated YouTube videos from a single prompt or topic.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/auto-yt-generator", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "autonomous-web-agent-ide", "title": "Frontend build verification", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "> A production-grade local desktop/web application that transforms natural-language project requirements into full-stack, tested, and running code using web-based LLMs via persistent Playwright automation, strict sandboxing, policy validation, and real-time streaming.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/autonomous-web-agent-ide", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "my-custom-ai-pytorch", "title": "My Custom AI (PyTorch)", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Custom neural language model trained from scratch with custom tokenization and multi-head attention.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/my-custom-ai-pytorch", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "my-helper-agent", "title": "My Helper Autonomous Agent", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Modular cognitive assistant with brain routing, episodic memory, and headless web research tools.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/my-helper-agent", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "omnidev-ai-synthesizer", "title": "OmniDev AI System", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Autonomous game and app synthesizer with persistent memory capable of autonomously building Godot games.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/omnidev-ai-synthesizer", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "stickforge-ai-animation", "title": "StickForge AI \ud83c\udfac\ud83e\udd16", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "StickForge AI is a desktop application for Windows that transforms ideas and scripts into complete animated stickman videos ready for YouTube Shorts, Instagram Reels, and standard video formats.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/stickforge-ai-animation", "demoType": "ai_terminal", "playType": "", "apkUrl": ""}, {"id": "360-journey-panorama", "title": "360 Journey Panorama", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/360-journey-panorama", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "action-rpg-engine", "title": "Action Rpg Engine", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/action-rpg-engine", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "arcade-space-dodger", "title": "2D Arcade Space Dodger", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Fast-paced 2D arcade game featuring procedural asteroid hazard generation and responsive controls.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/arcade-space-dodger", "demoType": "playable_game", "playType": "arcade-space-dodger", "apkUrl": ""}, {"id": "draw-your-army-warforge", "title": "Draw Your Army: WarForge", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "1. **Soldier Creator**: Modular appearance customization, equipment catalogue, base archetypes, and calculated derived stats.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/draw-your-army-warforge", "demoType": "game_sim", "playType": "", "apkUrl": "apks/WarForge.apk"}, {"id": "evergreen-after-the-fall-godot-rpg", "title": "Evergreen: After the Fall (Godot 4 2D Action-RPG)", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Full-featured narrative action RPG built with Godot 4. Features procedural farming, dynamic combat mechanics, inventory & crafting systems, relationship trees, day-night environmental audio, and custom dialogue trees.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/evergreen-after-the-fall-godot-rpg", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "flappy-bird-mechanics", "title": "Flappy Bird Mechanics Game", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Physics-based arcade game implementing custom gravity curves, pipe gap procedural generation, and score tracking.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/flappy-bird-mechanics", "demoType": "playable_game", "playType": "flappy-bird-mechanics", "apkUrl": ""}, {"id": "full-stack-rpg-game", "title": "Full-Stack RPG Game", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Complete action RPG featuring character stats, combat state machines, enemy AI, and dungeon transitions.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/full-stack-rpg-game", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "isekai-world-adventure", "title": "Isekai World Adventure", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Story-driven fantasy adventure game with interactive NPC dialog trees, quest progression, and world exploration.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/isekai-world-adventure", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "minecraft-3d-voxel-engine", "title": "Minecraft 3D Voxel Engine", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "3D voxel sandbox featuring procedural block placement, terrain generation, and destruction physics.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/minecraft-3d-voxel-engine", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "pixel-art-assets", "title": "Pixel Art Assets", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/pixel-art-assets", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "retro-snake-engine", "title": "Retro Snake Engine", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Grid-based classic snake game implementing dynamic body segment interpolation and food spawning.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/retro-snake-engine", "demoType": "playable_game", "playType": "retro-snake-engine", "apkUrl": ""}, {"id": "shadow-kingdom-2d-rpg", "title": "Shadow Kingdom 2D Rpg", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/shadow-kingdom-2d-rpg", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "slikj-water-physics", "title": "Slikj Water Physics", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Interactive 3D water physics simulation with realistic wave displacement, buoyancy calculations, and reflection shaders.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/slikj-water-physics", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "unity-fps-microgame", "title": "Unity 3D FPS Game", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "First Person Shooter with NavMesh AI pathfinding, raycast shooting mechanics, particle impacts, and HUD overlay.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/unity-fps-microgame", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "yorus-3d-world", "title": "Yorus 3D World", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "3D environment exploration featuring atmospheric lighting, custom collision detection, and camera controls.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/yorus-3d-world", "demoType": "game_sim", "playType": "", "apkUrl": ""}, {"id": "arduino-iot-wire", "title": "Arduino IoT Wire Communication", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Embedded microcontroller programming using Wire library for I2C communication.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/arduino-iot-wire", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "autohotkey-automation", "title": "AutoHotkey Automation Suite", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Windows desktop automation scripts for keyboard macros and slide transitions.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/autohotkey-automation", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "calculator-utility", "title": "Calculator Utility", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Responsive arithmetic calculation engine.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/calculator-utility", "demoType": "calculator-utility", "playType": "", "apkUrl": ""}, {"id": "college-portal-website", "title": "College Website Portal", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Institutional web portal showcasing courses and student resources.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/college-portal-website", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "java-core-oop-assignments", "title": "Java Core OOP, Abstraction & Custom Exception Suite", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Academic Java engineering suite covering abstract classes, inner member hierarchies, multi-level try-catch, and custom exception handling paradigms.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/java-core-oop-assignments", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "mongodb-advanced-queries", "title": "MongoDB Advanced Queries", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Advanced database optimization routines and NoSQL schema validations.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/mongodb-advanced-queries", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "school-management-portal", "title": "School Management Portal", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Educational administration portal handling student enrollments and fee status.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/school-management-portal", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "stopwatch-and-precision-timer", "title": "Stopwatch & Precision Timer", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Millisecond-precision timer with lap splitting and state persistence.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/stopwatch-and-precision-timer", "demoType": "stopwatch-and-precision-timer", "playType": "", "apkUrl": ""}, {"id": "systems-and-algorithms-cpp", "title": "Systems & Algorithms Repositories", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Core algorithmic data structures and console pipeline utilities.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/systems-and-algorithms-cpp", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "turboc-cpp-academic-projects", "title": "Turbo C++ Academic Algorithms & Systems", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Classic C/C++ implementations of foundational data structures, memory pointer manipulations, and low-level console algorithms.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/turboc-cpp-academic-projects", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "visual-studio-cpp-core", "title": "Visual Studio C++ Low-Level Systems Core", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Visual Studio C++ core solution demonstrating memory safety, native pointers, and low-level system utilities.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/visual-studio-cpp-core", "demoType": "dashboard", "playType": "", "apkUrl": ""}, {"id": "visual-studio-node-console", "title": "Visual Studio Node.js CLI & Console Service", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Visual Studio solution integrating Node.js CLI tooling for local process automation and command-line services.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/visual-studio-node-console", "demoType": "dashboard", "playType": "", "apkUrl": ""}];
+        const allProjects = [{"id": "abdul-server", "title": "AbdulServer", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Backend server infrastructure handling custom routing and session dispatching.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/abdul-server", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "asset-manager-platform", "title": "Full-Stack Asset Manager Platform", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Modern IT and organizational asset management dashboard built with React, TypeScript, Tailwind CSS, and Drizzle ORM.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/asset-manager-platform", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "college-face-recognition-attendance", "title": "College Face Recognition Automated Attendance", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Complete biometric facial recognition system integrating deep computer vision with frontend management portal and backend verification API.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/college-face-recognition-attendance", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["ai"]}, {"id": "college-hub", "title": "collage-hub", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "college dreammmmm", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/college-hub", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "cyclecare-health-platform", "title": "CycleCare \u2014 Health Intelligence & Wellness Platform", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Comprehensive health tracking ecosystem featuring cycle prediction algorithms, symptom correlation metrics, secure cloud sync, and empathetic wellness guidance.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/cyclecare-health-platform", "demoType": "dashboard", "playType": "", "apkUrl": "apks/CycleCare.apk", "sections": ["apk", "website"]}, {"id": "enterprise-billing-backend", "title": "Enterprise Billing Backend", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Production engineering project developed in \ud83c\udfe2 Campus & Enterprise.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/enterprise-billing-backend", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "follow-or-not-app", "title": "Preview production build locally", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "> **\"Know Who Follows You. Track Every Change.\"**", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/follow-or-not-app", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "gst-billing-system", "title": "GST Billing & Invoicing Enterprise System", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Enterprise GST calculation, invoicing, and inventory system powered by Node.js, Express, and SQL database schemas with automated invoice generation.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/gst-billing-system", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website", "software"]}, {"id": "interact-app", "title": "Interakt \u2014 Real-Time Peer Collaboration Platform", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Interactive real-time collaboration engine featuring dynamic team channels, rich-text state synchronization, responsive workspace dashboards, and low-latency interaction protocols.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/interact-app", "demoType": "dashboard", "playType": "", "apkUrl": "apks/Interakt.apk", "sections": ["apk", "website"]}, {"id": "masipay-canteen", "title": "SRK Campus Staff & MasiPay \u2014 Campus Operations App", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Staff attendance, task tracking, and campus cafeteria order processing with real-time biometric and QR verification.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/masipay-canteen", "demoType": "dashboard", "playType": "", "apkUrl": "apks/SRKStaff.apk", "sections": ["apk", "website"]}, {"id": "mvc-backend-architecture", "title": "Modular MVC Backend", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Enterprise REST API architecture featuring isolated controllers, authentication middleware, and validated schemas.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/mvc-backend-architecture", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "projectflow-intelligence", "title": "ProjectFlow Intelligence \u2014 Mobile Task & Project Suite", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Agile project tracker with Gantt visualizer, milestone alarms, sprint boards, and local SQLite state sync.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/projectflow-intelligence", "demoType": "dashboard", "playType": "", "apkUrl": "apks/ProjectFlow.apk", "sections": ["apk", "website"]}, {"id": "smart-expenses-tracker", "title": "SmartExpenses \u2014 Automated Finance & Budget Tracker", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Smart expense manager with category breakdown, multi-wallet ledger, receipt analytics, and offline-first database.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/smart-expenses-tracker", "demoType": "dashboard", "playType": "", "apkUrl": "apks/SmartExpenses.apk", "sections": ["apk", "website"]}, {"id": "social-media-platform", "title": "Full-Stack Social Network", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Complete social media platform with user feeds, image uploads, post interactions, and real-time chat.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/social-media-platform", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "srk-campus-connect", "title": "Campus Presence, Attendance & Faculty Coordination System", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "A production-grade, offline-first college campus coordination platform uniting students, faculty, and administration across 3 Flutter applications and a unified Node.js/TypeScript backend.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/srk-campus-connect", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "test-microservice", "title": "TEST Microservice", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Experimental API testing server for token validations and endpoint routing.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/test-microservice", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "wss-bhuj-institutional-portal", "title": "WSS Bhuj Institutional Web Portal", "category": "enterprise", "categoryName": "\ud83c\udfe2 Campus & Enterprise", "description": "Institutional web platform with responsive styling, public portal pages, and localized asset structures.", "folder": "01-Campus-And-Enterprise-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/wss-bhuj-institutional-portal", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "aapdasetu-disaster-response", "title": "AapdaSetu Disaster Command & Mesh", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Cellular-independent disaster rescue operations command console with real-time GIS incident mapping.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/aapdasetu-disaster-response", "demoType": "android_sim", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "android-native-prototypes", "title": "Native Android Prototypes", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Prototypes testing custom CameraX capture pipelines, sensor fusion, and Room DB migrations.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/android-native-prototypes", "demoType": "android_sim", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "couple-canvas", "title": "CoupleCanvas \u2014 Real-Time Collaborative Whiteboard", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Ultra-low latency dual-device drawing canvas with WebRTC/WebSocket stroke synchronization and pressure dynamics.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/couple-canvas", "demoType": "whiteboard", "playType": "", "apkUrl": "apks/CoupleCanvas.apk", "sections": ["apk"]}, {"id": "emergency-recorder-fast-rec", "title": "FastRec \u2014 Instant Background Emergency Audio Recorder", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "One-touch hardware key trigger for stealth background audio recording, encrypted storage, and auto-dispatch alerts.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/emergency-recorder-fast-rec", "demoType": "android_sim", "playType": "", "apkUrl": "apks/FastRec.apk", "sections": ["apk", "software"]}, {"id": "focus-guard-addiction-blocker", "title": "FocusGuard \u2014 Digital Wellbeing & Focus Controller", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Accessibility-service driven habit tracker and distraction blocker with strict schedule lockouts and PIN protection.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/focus-guard-addiction-blocker", "demoType": "android_sim", "playType": "", "apkUrl": "apks/FocusGuard.apk", "sections": ["apk"]}, {"id": "myhelper-storage-analyzer", "title": "MyHelper \u2014 Android Device Storage & Telemetry Analyzer", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "On-device disk analyzer, storage cleaner, battery monitor, and remote diagnostics tool with local HTTP tunneling.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/myhelper-storage-analyzer", "demoType": "android_sim", "playType": "", "apkUrl": "apks/MyHelper.apk", "sections": ["apk", "software"]}, {"id": "neardrop-wireless-drop", "title": "NearDrop", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Fast local device-to-device wireless file transfer utility.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/neardrop-wireless-drop", "demoType": "android_sim", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "nearmeshchat-sahay-android", "title": "NearMeshChat (Sahay) \u2014 Offline Disaster Network", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Disaster-resilient offline Android mesh network utilizing Bluetooth Low Energy radar scanning, decentralized store-and-forward routing, and on-device emergency triage.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nearmeshchat-sahay-android", "demoType": "android_sim", "playType": "", "apkUrl": "apks/Sahay-NearMesh.apk", "sections": ["apk"]}, {"id": "nexus-meshlink-offline", "title": "Nexus (MeshLink) \u2014 Offline Mesh & Edge AI Server", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Zero-infrastructure offline communication & inference engine hosting a local HTTP microserver and edge intelligence on Android devices with BLE/Wi-Fi Direct mesh.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nexus-meshlink-offline", "demoType": "android_sim", "playType": "", "apkUrl": "apks/Nexus-MeshLink.apk", "sections": ["apk"]}, {"id": "personal-life-vault", "title": "Personal Life Vault \u2014 Encrypted Android Security App", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Hardware-backed military-grade AES-256 vault for personal records, emergency offline contacts, biometric authentication, and decoy PIN security.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/personal-life-vault", "demoType": "vault_sim", "playType": "", "apkUrl": "apks/PersonalLifeVault.apk", "sections": ["apk", "software"]}, {"id": "pocketai-server", "title": "PocketAI Server", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Companion offline AI assistant server delivering local inference over Wi-Fi.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/pocketai-server", "demoType": "android_sim", "playType": "", "apkUrl": "", "sections": ["ai"]}, {"id": "recoverx-data-recovery", "title": "RecoverX \u2014 Fast Media & File Recovery Utility", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Deep storage sector scanner recovering deleted photos, media files, and document caches from internal flash storage.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/recoverx-data-recovery", "demoType": "android_sim", "playType": "", "apkUrl": "apks/RecoverX.apk", "sections": ["apk", "software"]}, {"id": "rentany-rental-platform", "title": "RentANY Multi-Platform Rental System", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Full-Stack Android Rental Marketplace built with Kotlin, Android Jetpack, and a Node.js backend. Features product rental listings, transaction tracking, and real-time order states.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/rentany-rental-platform", "demoType": "android_sim", "playType": "", "apkUrl": "", "sections": ["website"]}, {"id": "z-music-player", "title": "Z-Music \u2014 High-Fidelity Android Audio Player", "category": "android", "categoryName": "\ud83d\udcf1 Android & Offline Mesh", "description": "Sleek local audio player engine with equalizer controls, background service playback, and playlist synchronization.", "folder": "02-Offline-Mesh-And-Android-Systems", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/z-music-player", "demoType": "android_sim", "playType": "", "apkUrl": "apks/Z-Music.apk", "sections": ["apk"]}, {"id": "ai-creator-video-automation", "title": "AI Content & Video Creation Automation Pipeline", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Automated media synthesizer generating viral video content using clever script prompts, audio synthesis, and headless ffmpeg assembly.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-creator-video-automation", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai"]}, {"id": "ai-hardware-assistant-arduino", "title": "AI Hardware Assistant with Arduino IoT", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Autonomous voice and reasoning assistant interfacing with local memory caches and Arduino microcontrollers for physical world automation.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-hardware-assistant-arduino", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai", "software"]}, {"id": "ai-video-repurposing-studio", "title": "AI Content Repurposing Studio", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "A desktop video repurposing application that converts long-form video (local files or validated sources) into high-retention 9:16 Shorts with zero paid AI APIs. It combines browser-automated AI providers (Gemini, ChatGPT, DeepSeek) with an FFmpeg video processing pipeline, OpenCV face-tracking smart reframing, animated karaoke captions, strict 15-point quality assurance, and human review before export.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-video-repurposing-studio", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai"]}, {"id": "ai-zubair-llm-research", "title": "AI Zubair LLM Research", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Comprehensive LLM training audits, hyperparameter benchmarks, and automated dataset inventory scripts.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/ai-zubair-llm-research", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai"]}, {"id": "aura-autonomous-ai-system", "title": "AURA \u2014 Autonomous Local AI Research & Learning System", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "AURA is a fully local, autonomous AI research and learning system designed for model independence, hardware efficiency (optimized for NVIDIA RTX 2050 4GB VRAM), and continuous self-driven cognitive execution.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/aura-autonomous-ai-system", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai", "software"]}, {"id": "auto-yt-generator", "title": "Or generate via CLI", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "An automated 2D video production engine designed to create full 1080p animated YouTube videos from a single prompt or topic.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/auto-yt-generator", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai"]}, {"id": "autonomous-web-agent-ide", "title": "Frontend build verification", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "> A production-grade local desktop/web application that transforms natural-language project requirements into full-stack, tested, and running code using web-based LLMs via persistent Playwright automation, strict sandboxing, policy validation, and real-time streaming.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/autonomous-web-agent-ide", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai"]}, {"id": "my-custom-ai-pytorch", "title": "My Custom AI (PyTorch)", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Custom neural language model trained from scratch with custom tokenization and multi-head attention.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/my-custom-ai-pytorch", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai"]}, {"id": "my-helper-agent", "title": "My Helper Autonomous Agent", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Modular cognitive assistant with brain routing, episodic memory, and headless web research tools.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/my-helper-agent", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai", "software"]}, {"id": "omnidev-ai-synthesizer", "title": "OmniDev AI System", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "Autonomous game and app synthesizer with persistent memory capable of autonomously building Godot games.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/omnidev-ai-synthesizer", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai"]}, {"id": "stickforge-ai-animation", "title": "StickForge AI \ud83c\udfac\ud83e\udd16", "category": "ai", "categoryName": "\ud83e\udd16 Autonomous AI & Media", "description": "StickForge AI is a desktop application for Windows that transforms ideas and scripts into complete animated stickman videos ready for YouTube Shorts, Instagram Reels, and standard video formats.", "folder": "03-Autonomous-AI-And-Media", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/03-Autonomous-AI-And-Media/stickforge-ai-animation", "demoType": "ai_terminal", "playType": "", "apkUrl": "", "sections": ["ai"]}, {"id": "360-journey-panorama", "title": "360 Journey Panorama", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/360-journey-panorama", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["game"]}, {"id": "action-rpg-engine", "title": "Action Rpg Engine", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/action-rpg-engine", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["game"]}, {"id": "arcade-space-dodger", "title": "2D Arcade Space Dodger", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Fast-paced 2D arcade game featuring procedural asteroid hazard generation and responsive controls.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/arcade-space-dodger", "demoType": "playable_game", "playType": "arcade-space-dodger", "apkUrl": "", "sections": ["game"]}, {"id": "draw-your-army-warforge", "title": "WarForge: Draw Your Army \u2014 Real-Time 3D RTS", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "High-performance 3D Unity RTS mobile game featuring custom vector gesture unit-spawning, A* crowd pathfinding, and physics-driven battle simulations.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/draw-your-army-warforge", "demoType": "game_sim", "playType": "", "apkUrl": "apks/WarForge.apk", "sections": ["apk", "game"]}, {"id": "evergreen-after-the-fall-godot-rpg", "title": "Evergreen: After the Fall (Godot 4 2D Action-RPG)", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Full-featured narrative action RPG built with Godot 4. Features procedural farming, dynamic combat mechanics, inventory & crafting systems, relationship trees, day-night environmental audio, and custom dialogue trees.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/evergreen-after-the-fall-godot-rpg", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["game"]}, {"id": "flappy-bird-mechanics", "title": "Flappy Bird Mechanics Game", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Physics-based arcade game implementing custom gravity curves, pipe gap procedural generation, and score tracking.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/flappy-bird-mechanics", "demoType": "playable_game", "playType": "flappy-bird-mechanics", "apkUrl": "", "sections": ["game"]}, {"id": "full-stack-rpg-game", "title": "Full-Stack RPG Game", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Complete action RPG featuring character stats, combat state machines, enemy AI, and dungeon transitions.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/full-stack-rpg-game", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["game"]}, {"id": "isekai-world-adventure", "title": "Isekai World Adventure", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Story-driven fantasy adventure game with interactive NPC dialog trees, quest progression, and world exploration.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/isekai-world-adventure", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["ai", "game"]}, {"id": "minecraft-3d-voxel-engine", "title": "Minecraft 3D Voxel Engine", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "3D voxel sandbox featuring procedural block placement, terrain generation, and destruction physics.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/minecraft-3d-voxel-engine", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["game"]}, {"id": "pixel-art-assets", "title": "Pixel Art Assets", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/pixel-art-assets", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["game"]}, {"id": "retro-snake-engine", "title": "Retro Snake Engine", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Grid-based classic snake game implementing dynamic body segment interpolation and food spawning.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/retro-snake-engine", "demoType": "playable_game", "playType": "retro-snake-engine", "apkUrl": "", "sections": ["game"]}, {"id": "shadow-kingdom-2d-rpg", "title": "Shadow Kingdom 2D Rpg", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Production engineering project developed in \ud83c\udfae Games & Game Engines.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/shadow-kingdom-2d-rpg", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["game"]}, {"id": "slikj-water-physics", "title": "Slikj Water Physics", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "Interactive 3D water physics simulation with realistic wave displacement, buoyancy calculations, and reflection shaders.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/slikj-water-physics", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["game"]}, {"id": "unity-fps-microgame", "title": "Unity 3D FPS Game", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "First Person Shooter with NavMesh AI pathfinding, raycast shooting mechanics, particle impacts, and HUD overlay.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/unity-fps-microgame", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["game"]}, {"id": "yorus-3d-world", "title": "Yorus 3D World", "category": "games", "categoryName": "\ud83c\udfae Games & Game Engines", "description": "3D environment exploration featuring atmospheric lighting, custom collision detection, and camera controls.", "folder": "04-Game-Development-Godot-And-Unity", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/yorus-3d-world", "demoType": "game_sim", "playType": "", "apkUrl": "", "sections": ["game"]}, {"id": "arduino-iot-wire", "title": "Arduino IoT Wire Communication", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Embedded microcontroller programming using Wire library for I2C communication.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/arduino-iot-wire", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "autohotkey-automation", "title": "AutoHotkey Automation Suite", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Windows desktop automation scripts for keyboard macros and slide transitions.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/autohotkey-automation", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "calculator-utility", "title": "Calculator Utility", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Responsive arithmetic calculation engine.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/calculator-utility", "demoType": "calculator-utility", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "college-portal-website", "title": "College Website Portal", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Institutional web portal showcasing courses and student resources.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/college-portal-website", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website", "software"]}, {"id": "java-core-oop-assignments", "title": "Java Core OOP, Abstraction & Custom Exception Suite", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Academic Java engineering suite covering abstract classes, inner member hierarchies, multi-level try-catch, and custom exception handling paradigms.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/java-core-oop-assignments", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "mongodb-advanced-queries", "title": "MongoDB Advanced Queries", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Advanced database optimization routines and NoSQL schema validations.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/mongodb-advanced-queries", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "school-management-portal", "title": "School Management Portal", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Educational administration portal handling student enrollments and fee status.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/school-management-portal", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["website", "software"]}, {"id": "stopwatch-and-precision-timer", "title": "Stopwatch & Precision Timer", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Millisecond-precision timer with lap splitting and state persistence.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/stopwatch-and-precision-timer", "demoType": "stopwatch-and-precision-timer", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "systems-and-algorithms-cpp", "title": "Systems & Algorithms Repositories", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Core algorithmic data structures and console pipeline utilities.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/systems-and-algorithms-cpp", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "turboc-cpp-academic-projects", "title": "Turbo C++ Academic Algorithms & Systems", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Classic C/C++ implementations of foundational data structures, memory pointer manipulations, and low-level console algorithms.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/turboc-cpp-academic-projects", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "visual-studio-cpp-core", "title": "Visual Studio C++ Low-Level Systems Core", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Visual Studio C++ core solution demonstrating memory safety, native pointers, and low-level system utilities.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/visual-studio-cpp-core", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["software"]}, {"id": "visual-studio-node-console", "title": "Visual Studio Node.js CLI & Console Service", "category": "systems", "categoryName": "\u2699\ufe0f Embedded & Core Systems", "description": "Visual Studio solution integrating Node.js CLI tooling for local process automation and command-line services.", "folder": "05-Embedded-Systems-And-Utilities", "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/05-Embedded-Systems-And-Utilities/visual-studio-node-console", "demoType": "dashboard", "playType": "", "apkUrl": "", "sections": ["software"]}];
+
+        // Section descriptions mapping
+        const sectionMeta = {
+            'all': {
+                title: 'All Systems (69 Projects)',
+                desc: 'Complete portfolio of 69 production repositories spanning Android offline mesh, edge AI microservers, game engines, and full-stack web platforms.'
+            },
+            'apk': {
+                title: 'Android Apps & APKs (15 Applications)',
+                desc: 'Direct downloadable Android APK packages. Tested and verified on physical hardware: offline BLE mesh networks, 3D RTS mobile games, encrypted vaults, and utility hubs.'
+            },
+            'ai': {
+                title: 'AI & Autonomous Systems (14 Projects)',
+                desc: 'Edge AI microservers, on-device Llama inference engines, autonomous YouTube video synthesizers, voice telemetry controllers, and computer vision pipelines.'
+            },
+            'game': {
+                title: 'Games & Physics Engines (15 Projects)',
+                desc: 'Real-time 3D strategy simulations, Godot RPG adventure engines, retro arcade mechanics, and interactive browser canvas games.'
+            },
+            'website': {
+                title: 'Websites & Web Platforms (20 Platforms)',
+                desc: 'Campus presence systems, real-time collaboration platforms, institutional portals, and multi-tier rental marketplaces.'
+            },
+            'software': {
+                title: 'Softwares & Core Utilities (22 Systems)',
+                desc: 'C++ memory management solutions, Turbo C++ algorithmic data structures, Node.js CLI console pipelines, and IoT Arduino sensor telemetry.'
+            }
+        };
 
         // Filter and Search Engine
         const pills = document.querySelectorAll('.filter-pill');
         const searchInput = document.getElementById('projectSearch');
-        let currentCat = 'all';
+        const headingEl = document.getElementById('catalogHeading');
+        const subheadingEl = document.getElementById('catalogSubheading');
+        let currentSection = 'all';
         let searchQuery = '';
 
         function renderCatalog() {
             const cards = document.querySelectorAll('.catalog-grid .project-card');
+            let visibleCount = 0;
+            
             cards.forEach(card => {
-                const cat = card.getAttribute('data-category');
+                const sections = card.getAttribute('data-sections').split(',');
                 const title = card.querySelector('.card-title').textContent.toLowerCase();
                 const desc = card.querySelector('.card-desc').textContent.toLowerCase();
                 const tags = card.getAttribute('data-tags').toLowerCase();
-                const id = card.querySelector('.card-id').textContent.toLowerCase();
 
-                const matchesCat = (currentCat === 'all' || cat === currentCat);
+                const matchesSection = (currentSection === 'all' || sections.includes(currentSection));
                 const matchesSearch = !searchQuery || 
                     title.includes(searchQuery) || 
                     desc.includes(searchQuery) || 
-                    tags.includes(searchQuery) ||
-                    id.includes(searchQuery);
+                    tags.includes(searchQuery);
 
-                if (matchesCat && matchesSearch) {
+                if (matchesSection && matchesSearch) {
                     card.style.display = 'flex';
+                    visibleCount++;
                 } else {
                     card.style.display = 'none';
                 }
             });
         }
 
+        function selectSection(secKey) {
+            currentSection = secKey;
+            pills.forEach(p => {
+                if (p.getAttribute('data-sec') === secKey) {
+                    p.classList.add('active');
+                } else {
+                    p.classList.remove('active');
+                }
+            });
+
+            const meta = sectionMeta[secKey] || sectionMeta['all'];
+            headingEl.textContent = meta.title;
+            subheadingEl.textContent = meta.desc;
+
+            // Scroll to catalog smoothly
+            const catalogSection = document.getElementById('catalog');
+            if (catalogSection) {
+                catalogSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            renderCatalog();
+        }
+
         pills.forEach(pill => {
             pill.addEventListener('click', () => {
-                pills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-                currentCat = pill.getAttribute('data-cat');
-                renderCatalog();
+                const sec = pill.getAttribute('data-sec');
+                selectSection(sec);
             });
         });
 
@@ -2036,7 +2204,7 @@
                 window.PortfolioSimulators.launchCalculator(body);
             } else if (p.id === 'stopwatch-and-precision-timer') {
                 window.PortfolioSimulators.launchStopwatch(body);
-            } else if (p.category === 'ai') {
+            } else if (p.category === 'ai' || (p.sections && p.sections.includes('ai'))) {
                 window.PortfolioSimulators.launchAiTerminal(body, p.title);
             } else {
                 window.PortfolioSimulators.launchDashboard(body, p.title, p.description, p.githubUrl, p.apkUrl);
