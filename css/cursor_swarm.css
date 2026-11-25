@@ -1095,3 +1095,42 @@ body::before {
   flex-shrink: 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Live Website / Cloud Pill Button */
+.btn-card-live-web {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60A5FA;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  transition: all 0.2s ease;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
+}
+.btn-card-live-web:hover {
+  background: #3B82F6;
+  color: #FFFFFF;
+  border-color: #3B82F6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(59, 130, 246, 0.4);
+}
+
+.card-badge-live-web {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #60A5FA;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
