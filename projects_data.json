@@ -59,7 +59,8 @@
     "playType": "",
     "apkUrl": "apks/CycleCare.apk",
     "liveUrl": "https://cyclecare-api.onrender.com",
-    "liveLabel": "Live API (Render)"
+    "liveLabel": "Live API (Render)",
+    "iconUrl": "images/app_icons/cyclecare.png"
   },
   {
     "id": "enterprise-billing-backend",
@@ -107,9 +108,10 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/interact-app",
     "demoType": "dashboard",
     "playType": "",
-    "apkUrl": "apks/Interakt.apk",
-    "liveUrl": "https://intaract-9b396.web.app",
-    "liveLabel": "Live Web (Firebase)"
+    "apkUrl": "https://github.com/abdulzubair1135/interakt-app/releases/download/v1.15.0/interakt.apk",
+    "liveUrl": "https://interakt-web.vercel.app/",
+    "liveLabel": "Live Web (Firebase)",
+    "iconUrl": "images/app_icons/interakt.png"
   },
   {
     "id": "masipay-canteen",
@@ -122,8 +124,9 @@
     "demoType": "dashboard",
     "playType": "",
     "apkUrl": "apks/SRKStaff.apk",
-    "liveUrl": "https://masicanteen.vercel.app",
-    "liveLabel": "Live Web (Vercel)"
+    "liveUrl": "https://masicanteen.vercel.app/",
+    "liveLabel": "Live Web (Vercel)",
+    "iconUrl": "images/app_icons/srkstaff.png"
   },
   {
     "id": "mvc-backend-architecture",
@@ -149,7 +152,8 @@
     "playType": "",
     "apkUrl": "apks/ProjectFlow.apk",
     "liveUrl": "https://projectflow-intelligence.onrender.com",
-    "liveLabel": "Live Cloud (Render)"
+    "liveLabel": "Live Cloud (Render)",
+    "iconUrl": "images/app_icons/projectflow.png"
   },
   {
     "id": "smart-expenses-tracker",
@@ -163,7 +167,8 @@
     "playType": "",
     "apkUrl": "apks/SmartExpenses.apk",
     "liveUrl": "https://smart-expenses-kuob.onrender.com",
-    "liveLabel": "Live Cloud (Render)"
+    "liveLabel": "Live Cloud (Render)",
+    "iconUrl": "images/app_icons/smartexpenses.png"
   },
   {
     "id": "social-media-platform",
@@ -251,7 +256,8 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/couple-canvas",
     "demoType": "whiteboard",
     "playType": "",
-    "apkUrl": "apks/CoupleCanvas.apk"
+    "apkUrl": "apks/CoupleCanvas.apk",
+    "iconUrl": "images/app_icons/couplecanvas.png"
   },
   {
     "id": "emergency-recorder-fast-rec",
@@ -263,7 +269,8 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/emergency-recorder-fast-rec",
     "demoType": "android_sim",
     "playType": "",
-    "apkUrl": "apks/FastRec.apk"
+    "apkUrl": "apks/FastRec.apk",
+    "iconUrl": "images/app_icons/fastrec.png"
   },
   {
     "id": "focus-guard-addiction-blocker",
@@ -275,7 +282,8 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/focus-guard-addiction-blocker",
     "demoType": "android_sim",
     "playType": "",
-    "apkUrl": "apks/FocusGuard.apk"
+    "apkUrl": "apks/FocusGuard.apk",
+    "iconUrl": "images/app_icons/focusguard.png"
   },
   {
     "id": "myhelper-storage-analyzer",
@@ -287,7 +295,8 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/myhelper-storage-analyzer",
     "demoType": "android_sim",
     "playType": "",
-    "apkUrl": "apks/MyHelper.apk"
+    "apkUrl": "apks/MyHelper.apk",
+    "iconUrl": "images/app_icons/myhelper.png"
   },
   {
     "id": "neardrop-wireless-drop",
@@ -313,7 +322,8 @@
     "playType": "",
     "apkUrl": "apks/Sahay-NearMesh.apk",
     "liveUrl": "https://sahay-2tvh.onrender.com",
-    "liveLabel": "Live API (Render)"
+    "liveLabel": "Live API (Render)",
+    "iconUrl": "images/app_icons/sahay.png"
   },
   {
     "id": "nexus-meshlink-offline",
@@ -325,7 +335,8 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nexus-meshlink-offline",
     "demoType": "android_sim",
     "playType": "",
-    "apkUrl": "apks/Nexus-MeshLink.apk"
+    "apkUrl": "apks/Nexus-MeshLink.apk",
+    "iconUrl": "images/app_icons/nexus.png"
   },
   {
     "id": "personal-life-vault",
@@ -337,7 +348,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/personal-life-vault",
     "demoType": "vault_sim",
     "playType": "",
-    "apkUrl": "apks/PersonalLifeVault.apk"
+    "apkUrl": "apks/PersonalLifeVault.apk",
+    "iconUrl": "images/app_icons/vault.png",
+    "liveUrl": "https://safe-vault-xx5c.onrender.com/"
   },
   {
     "id": "pocketai-server",
@@ -361,7 +374,8 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/recoverx-data-recovery",
     "demoType": "android_sim",
     "playType": "",
-    "apkUrl": "apks/RecoverX.apk"
+    "apkUrl": "apks/RecoverX.apk",
+    "iconUrl": "images/app_icons/recoverx.png"
   },
   {
     "id": "rentany-rental-platform",
@@ -389,7 +403,8 @@
     "playType": "",
     "apkUrl": "apks/Z-Music.apk",
     "liveUrl": "https://musicplayer-blyl.onrender.com",
-    "liveLabel": "Live Sync (Render)"
+    "liveLabel": "Live Sync (Render)",
+    "iconUrl": "images/app_icons/zmusic.png"
   },
   {
     "id": "ai-creator-video-automation",
@@ -569,7 +584,8 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/04-Game-Development-Godot-And-Unity/draw-your-army-warforge",
     "demoType": "game_sim",
     "playType": "",
-    "apkUrl": "apks/WarForge.apk"
+    "apkUrl": "apks/WarForge.apk",
+    "iconUrl": "images/app_icons/warforge.png"
   },
   {
     "id": "evergreen-after-the-fall-godot-rpg",
