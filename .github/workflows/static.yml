@@ -28,7 +28,7 @@ jobs:
           mkdir -p _site
           cp -r index.html css js images models projects_data.json _site/
           cp -r resume _site/ 2>/dev/null || true
-          cp *.png *.jpeg *.mp4 *.pdf _site/ 2>/dev/null || true
+          cp *.png *.jpeg *.mp4 *.pdf favicon.ico _site/ 2>/dev/null || true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
