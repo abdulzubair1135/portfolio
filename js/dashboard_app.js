@@ -334,8 +334,8 @@
     if (id === 'about-me-profile') {
       content.innerHTML = `
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
-          <div class="brand-logo-glow" style="width: 58px; height: 58px;">
-            <div class="brand-logo-inner" style="font-size: 24px;">AZ</div>
+          <div class="brand-logo-glow" style="width: 64px; height: 64px; border-radius: 50%; overflow: hidden; padding: 2px;">
+            <img src="images/branding/header_avatar.png" alt="Shaikh Abdul Zubair" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
           </div>
           <div>
             <h2 style="font-size: 22px; font-weight: 800; color: #fff;">Shaikh Abdul Zubair</h2>

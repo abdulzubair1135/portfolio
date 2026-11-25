@@ -781,24 +781,30 @@ body::after {
 
 .character-frame {
   width: 100%;
-  max-width: 440px;
-  border-radius: var(--radius-lg);
+  max-width: 410px;
+  max-height: 380px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
   position: relative;
-  border: 1px solid rgba(168, 85, 247, 0.35);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(124, 58, 237, 0.25);
-  transition: transform 0.3s ease;
+  border: 2px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(124, 58, 237, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #0E0F20;
 }
 
 .character-frame:hover {
-  transform: translateY(-3px) scale(1.01);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 45px rgba(168, 85, 247, 0.5);
+  border-color: rgba(192, 132, 252, 0.6);
 }
 
 .character-img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-height: 380px;
   display: block;
   object-fit: cover;
+  object-position: center 20%;
 }
 
 /* ==========================================================================
