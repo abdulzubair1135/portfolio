@@ -57,7 +57,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/cyclecare-health-platform",
     "demoType": "dashboard",
     "playType": "",
-    "apkUrl": "apks/CycleCare.apk"
+    "apkUrl": "apks/CycleCare.apk",
+    "liveUrl": "https://cyclecare-api.onrender.com",
+    "liveLabel": "Live API (Render)"
   },
   {
     "id": "enterprise-billing-backend",
@@ -105,7 +107,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/interact-app",
     "demoType": "dashboard",
     "playType": "",
-    "apkUrl": "apks/Interakt.apk"
+    "apkUrl": "apks/Interakt.apk",
+    "liveUrl": "https://intaract-9b396.web.app",
+    "liveLabel": "Live Web (Firebase)"
   },
   {
     "id": "masipay-canteen",
@@ -117,7 +121,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/masipay-canteen",
     "demoType": "dashboard",
     "playType": "",
-    "apkUrl": "apks/SRKStaff.apk"
+    "apkUrl": "apks/SRKStaff.apk",
+    "liveUrl": "https://masicanteen.vercel.app",
+    "liveLabel": "Live Web (Vercel)"
   },
   {
     "id": "mvc-backend-architecture",
@@ -141,7 +147,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/projectflow-intelligence",
     "demoType": "dashboard",
     "playType": "",
-    "apkUrl": "apks/ProjectFlow.apk"
+    "apkUrl": "apks/ProjectFlow.apk",
+    "liveUrl": "https://projectflow-intelligence.onrender.com",
+    "liveLabel": "Live Cloud (Render)"
   },
   {
     "id": "smart-expenses-tracker",
@@ -153,7 +161,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/smart-expenses-tracker",
     "demoType": "dashboard",
     "playType": "",
-    "apkUrl": "apks/SmartExpenses.apk"
+    "apkUrl": "apks/SmartExpenses.apk",
+    "liveUrl": "https://smart-expenses-kuob.onrender.com",
+    "liveLabel": "Live Cloud (Render)"
   },
   {
     "id": "social-media-platform",
@@ -177,7 +187,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/01-Campus-And-Enterprise-Systems/srk-campus-connect",
     "demoType": "dashboard",
     "playType": "",
-    "apkUrl": ""
+    "apkUrl": "",
+    "liveUrl": "https://srk-campus-backend.onrender.com",
+    "liveLabel": "Live Backend (Render)"
   },
   {
     "id": "test-microservice",
@@ -213,7 +225,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/aapdasetu-disaster-response",
     "demoType": "android_sim",
     "playType": "",
-    "apkUrl": ""
+    "apkUrl": "",
+    "liveUrl": "https://sahay-2tvh.onrender.com",
+    "liveLabel": "Live API (Render)"
   },
   {
     "id": "android-native-prototypes",
@@ -297,7 +311,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/nearmeshchat-sahay-android",
     "demoType": "android_sim",
     "playType": "",
-    "apkUrl": "apks/Sahay-NearMesh.apk"
+    "apkUrl": "apks/Sahay-NearMesh.apk",
+    "liveUrl": "https://sahay-2tvh.onrender.com",
+    "liveLabel": "Live API (Render)"
   },
   {
     "id": "nexus-meshlink-offline",
@@ -357,7 +373,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/rentany-rental-platform",
     "demoType": "android_sim",
     "playType": "",
-    "apkUrl": ""
+    "apkUrl": "",
+    "liveUrl": "https://rentany.onrender.com",
+    "liveLabel": "Live Cloud (Render)"
   },
   {
     "id": "z-music-player",
@@ -369,7 +387,9 @@
     "githubUrl": "https://github.com/abdulzubair1135/my-all-projects/tree/main/02-Offline-Mesh-And-Android-Systems/z-music-player",
     "demoType": "android_sim",
     "playType": "",
-    "apkUrl": "apks/Z-Music.apk"
+    "apkUrl": "apks/Z-Music.apk",
+    "liveUrl": "https://musicplayer-blyl.onrender.com",
+    "liveLabel": "Live Sync (Render)"
   },
   {
     "id": "ai-creator-video-automation",
